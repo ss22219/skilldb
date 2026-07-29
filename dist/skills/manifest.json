@@ -5,6 +5,7 @@
     "gula-vpn-clash-guide",
     "sk-benchmark",
     "sk-bridge",
+    "sk-codex-beginner",
     "sk-content",
     "sk-decision",
     "sk-diagnosis",
@@ -12,5 +13,5 @@
     "sk-router",
     "sk-starter"
   ],
-  "total_count": 11
+  "total_count": 12
 }
