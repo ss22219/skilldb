@@ -1,0 +1,58 @@
+{
+  "windows": [
+    {
+      "name": "Clash Verge Rev (推荐)",
+      "version": "Latest",
+      "description": "基于 Tauri 开发的新一代开源 Clash 客户端，界面美观支持 Clash Meta 核心",
+      "download_url": "https://github.com/clash-verge-rev/clash-verge-rev/releases",
+      "direct_installer": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.7.7/Clash.Verge_1.7.7_x64-setup.exe"
+    },
+    {
+      "name": "Clash Nyanpasu",
+      "version": "Latest",
+      "description": "Clash for Windows 的现代化替代开源客户端",
+      "download_url": "https://github.com/keiko233/clash-nyanpasu/releases"
+    }
+  ],
+  "macos": [
+    {
+      "name": "Clash Verge Rev (macOS Apple Silicon & Intel)",
+      "version": "Latest",
+      "description": "支持 M1/M2/M3/M4 芯片及 Intel 芯片的 macOS Clash 客户端",
+      "download_url": "https://github.com/clash-verge-rev/clash-verge-rev/releases",
+      "direct_dmg": "https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.7.7/Clash.Verge_1.7.7_aarch64.dmg"
+    },
+    {
+      "name": "ClashX Meta",
+      "version": "Latest",
+      "description": "原生 macOS 风格 ClashX 的 Meta 升级版",
+      "download_url": "https://github.com/MetaCubeX/ClashX.Meta/releases"
+    }
+  ],
+  "android": [
+    {
+      "name": "Clash Meta for Android (CMFA)",
+      "version": "Latest",
+      "description": "Android 端功能最强大的开源 Clash 客户端",
+      "download_url": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases"
+    },
+    {
+      "name": "Surfboard (冲浪板)",
+      "version": "Latest",
+      "description": "界面极致简洁高效的 Android 代理工具",
+      "download_url": "https://github.com/getsurfboard/surfboard/releases"
+    }
+  ],
+  "ios": [
+    {
+      "name": "Shadowrocket (小火箭)",
+      "description": "iOS 平台最受欢迎的代理客户端 (需非中国大陆 Apple ID 在 App Store 购买下载)",
+      "app_store_url": "https://apps.apple.com/app/shadowrocket/id932747118"
+    },
+    {
+      "name": "Stash",
+      "description": "iOS 平台功能完善的 Clash 规则代理工具",
+      "app_store_url": "https://apps.apple.com/app/stash/id1596072465"
+    }
+  ]
+}

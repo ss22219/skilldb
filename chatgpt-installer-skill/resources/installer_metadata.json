@@ -1,0 +1,16 @@
+{
+  "macos": {
+    "installer_type": "dmg",
+    "official_url": "https://persistent.oaistatic.com/codex-app-prod/ChatGPT.dmg",
+    "filename": "ChatGPT.dmg",
+    "install_cmd": "hdiutil attach ChatGPT.dmg && cp -R '/Volumes/ChatGPT/ChatGPT.app' /Applications/ && hdiutil detach /Volumes/ChatGPT"
+  },
+  "windows": {
+    "store_product_id": "9NT1R1C2HH7J",
+    "winget_cmd": "winget install --id=9NT1R1C2HH7J -e",
+    "region_required": "US",
+    "rg_adguard_url": "https://store.rg-adguard.net/",
+    "package_type": "msixbundle",
+    "powershell_install_cmd": "Add-AppxPackage -Path"
+  }
+}

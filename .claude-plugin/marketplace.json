@@ -1,0 +1,43 @@
+{
+  "name": "skilldb-marketplace",
+  "owner": "skilldb",
+  "version": "1.0.0",
+  "description": "SkillDB System - Business, Content, & AI Automation Skills Package",
+  "plugins": [
+    {
+      "name": "sk",
+      "description": "Master Router Skill for automatically analyzing context and executing matching Skills",
+      "path": "skills/sk-router"
+    },
+    {
+      "name": "sk-diagnosis",
+      "description": "Business, Product, & Pricing Diagnosis Framework Skill",
+      "path": "skills/sk-diagnosis"
+    },
+    {
+      "name": "sk-content",
+      "description": "High-Converting Content Strategy & Copywriting Skill",
+      "path": "skills/sk-content"
+    },
+    {
+      "name": "sk-benchmark",
+      "description": "Competitor & Industry Benchmark Analysis Skill",
+      "path": "skills/sk-benchmark"
+    },
+    {
+      "name": "sk-decision",
+      "description": "Strategic Decision & Risk Framework Skill",
+      "path": "skills/sk-decision"
+    },
+    {
+      "name": "sk-knowledge",
+      "description": "Local & Remote RAG Knowledge Base Management Skill",
+      "path": "skills/sk-knowledge"
+    },
+    {
+      "name": "sk-bridge",
+      "description": "Multi-Agent Environment Bridge Sync Skill",
+      "path": "skills/sk-bridge"
+    }
+  ]
+}
