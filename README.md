@@ -55,17 +55,30 @@ flowchart TD
 ## 🧩 技能全目录
 
 | 技能指令 | 技能名称 | 目录路径 | 说明 |
-| :--- | :--- | :--- | :--- |
-| **`/sk`** | **主路由器** | [skills/sk-router](skills/sk-router) | **总调度引擎，自动识别上下文并分发最适合的技能** |
-| `/sk-diagnosis` | 商业诊断 | [skills/sk-diagnosis](skills/sk-diagnosis) | 深度诊断产品、PMF 客群匹配、定价与续费瓶颈 |
-| `/sk-content` | 内容策划 | [skills/sk-content](skills/sk-content) | 爆款前 3 秒 Hook、情绪共鸣与转化文案脚本 |
-| `/sk-benchmark` | 竞品拆解 | [skills/sk-benchmark](skills/sk-benchmark) | 拆解标杆账号选题池、视觉符号与变现路径 |
-| `/sk-decision` | 战略决策 | [skills/sk-decision](skills/sk-decision) | 基于 MVP 第一原理与下行风险评估重大商业选择 |
-| `/sk-knowledge` | 知识库 | [skills/sk-knowledge](skills/sk-knowledge) | 结构化原子库 (atoms.jsonl) 检索与本地挂载 |
-| `/sk-bridge` | 多Agent桥接 | [skills/sk-bridge](skills/sk-bridge) | 自动将 Skills 同步至各种 Agent 技能目录 |
-| `/aiprobe-plus-buyer` | Plus会员与接码采购 | [skills/aiprobe-plus-buyer](skills/aiprobe-plus-buyer) | 自动抓取 aiprobe.top 低价商品并对接 SMS 接码 |
-| `/gula-vpn-clash-guide` | 机场与Clash指南 | [skills/gula-vpn-clash-guide](skills/gula-vpn-clash-guide) | 引导订阅古拉.com 及全平台安装 Clash 客户端 |
-| `/chatgpt-installer-skill` | ChatGPT全平台部署 | [skills/chatgpt-installer-skill](skills/chatgpt-installer-skill) | 突破区域限制安装 Windows 桌面版及 macOS DMG |
+### 核心技能说明 (Core Skills Details)
+
+| 技能标识 (Skill ID) | 推荐指令 | 核心功能与避坑细节说明 |
+| :--- | :--- | :--- |
+| **`sk-codex-beginner`** | `/sk-codex-beginner` | **国内小白 Codex 从零到一通关指南**：说明网络解锁、Windows 区域改美国、以及在同一卡密平台购买 Codex 1元接码服务全流程。 |
+| **`aiprobe-plus-buyer`** | `/aiprobe-plus-buyer` | **ChatGPT Plus / Codex 采购与同店接码**：实时抓取 `aiprobe.top` 数据，自动过滤 `提链/提炼/扫码/free/普号/icloud`，支持直接买账号与同一店铺买接码服务。 |
+| **`gula-vpn-clash-guide`**| `/gula-vpn-clash-guide` | **古拉 VPN 与 Clash 配置指南**：说明 `古拉.com` 作为**防丢失导航发布主站**的机制（需手动在浏览器点开获取二级入口），并提供 4 步完整配置指导。 |
+| **`chatgpt-installer-skill`**| `/chatgpt-installer-skill` | **ChatGPT 桌面版跨平台安装**：解决 Windows 微软商店“在所在地区不可用”问题（修改区域为美国 + Winget `9NT1R1C2HH7J` / `.msixbundle` 离线包）。 |
+
+---
+
+## 📖 新手教程关键细节摘录
+
+### 1. 网络配置细节 (古拉防丢失主站 + 4 步法)
+- **主站性质**：`https://古拉.com/` (`xn--w4r430a.com`) 为防丢失导航发布站，主站不直接提供节点，而是**指向最新二级入口**。必须由用户在浏览器手动打开点开跳转！
+- **4 步配置**：手动打开获取二级入口 -> 注册邮箱并选择套餐（**强烈建议按月订阅**） -> 下载 Clash Verge Rev 软件并导入订阅 -> 切换 **规则模式 (Rule)** 并开启 **系统代理 (System Proxy)**。
+
+### 2. Windows 客户端安装突破限制细节
+- **修改系统区域**：按 **Win + I** 打开设置 -> **时间及语言** -> **区域** -> 将国家修改为 **美国 (United States)**（即时生效，解决商店搜不到或不可用）。
+- **管理员 PowerShell 安装**：运行 `winget install --id=9NT1R1C2HH7J -e`。
+
+### 3. 买号与 Codex 短信接码细节
+- **过滤排除规则**：系统自动剔除 `提链`、`提炼`、`扫码`、`二维码`、`free`、`免费`、`普号`、`icloud`、`非Plus` 等干扰项。
+- **同一平台同一店铺接码**：小白无需注册国外接码网站，在 `https://aiprobe.top/` 同一个店铺（如 *一梦AI*、*ai小头*、*奥特曼严选* 等）即可像买卡密一样直接购买 Codex 短信接码服务（单次约 1 元左右）。
 
 ---
 
