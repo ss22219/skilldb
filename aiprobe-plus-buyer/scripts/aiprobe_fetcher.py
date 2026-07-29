@@ -26,7 +26,7 @@ DEFAULT_HEADERS = {
 
 # Exclusion rules as per aiprobe.top website logic
 EXCLUSION_PATTERN = re.compile(
-    r"(?:不是|非|不含|可升级|可开|媲美)plus|99%?开plus|开plus|提链|提炼|扫码|二维码|提取|助手|free|免费|普号|普通号|icloud",
+    r"(?:不是|非|不含|可升级|可开|媲美)plus|99%?开plus|提链|提炼|扫码|二维码|提取|free|免费|普号|普通号|icloud",
     re.IGNORECASE,
 )
 
@@ -57,7 +57,7 @@ class AIProbeFetcher:
         return self.pass_token
 
     def _is_valid_plus_item(self, item: Dict) -> bool:
-        """Check if an item is a genuine ChatGPT Plus product."""
+        """Check if an item is a genuine ChatGPT Plus or Codex product."""
         name = str(item.get("name") or "")
         category = str(item.get("category") or "")
         combined = f"{name} {category}"
@@ -67,18 +67,20 @@ class AIProbeFetcher:
         if EXCLUSION_PATTERN.search(compact):
             return False
             
-        if "plus" not in compact and "gpt-4" not in compact and "gpt4" not in compact:
-            return False
+        if any(k in compact for k in ["plus", "gpt-4", "gpt4", "codex", "接码", "验证码"]):
+            return True
             
-        return True
+        return False
 
     def _categorize_product(self, item: Dict) -> str:
-        """Categorize item into:成品号, 代充/直充, 兑换码, 团队/Pro"""
+        """Categorize item into: 成品号, 代充/直充, 兑换码, 团队/Pro, 接码服务"""
         name = (item.get("name") or "").lower()
         cat = (item.get("category") or "").lower()
         combined = f"{name} {cat}"
 
-        if any(k in combined for k in ["代充", "直充", "充值", "官方充"]):
+        if any(k in combined for k in ["接码", "验证码", "codex接码", "短信验证"]):
+            return "接码服务"
+        elif any(k in combined for k in ["代充", "直充", "充值", "官方充"]):
             return "代充/直充"
         elif any(k in combined for k in ["兑换码", "礼品卡", "cdk", "激活码", "卡密"]):
             return "兑换码/卡密"

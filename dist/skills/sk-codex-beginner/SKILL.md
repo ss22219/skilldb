@@ -1,11 +1,11 @@
 ---
 name: sk-codex-beginner
-description: 中国大陆小白用户从 0 到 1 成功使用 OpenAI Codex / ChatGPT 桌面版的极简全流程通关 Skill (/sk-codex-beginner)。包含网络解锁、客户端安装、账号获取及 Codex 手机接码全步骤。
+description: 中国大陆小白用户从 0 到 1 成功使用 OpenAI Codex / ChatGPT 桌面版的极简全流程通关 Skill (/sk-codex-beginner)。包含网络解锁、客户端安装、账号获取及在同一个卡密网站一键购买 Codex 短信接码服务。
 ---
 
 # 小白国内使用 OpenAI Codex 从零到一极简通关指南 (/sk-codex-beginner)
 
-针对中国大陆零基础用户（小白），提供一条**无缝通关路径**。只需要按顺序完成以下 4 个阶段，即可顺畅使用 OpenAI Codex / ChatGPT 桌面版。
+针对中国大陆零基础用户（小白），提供一条**极简通关路径**。不需要繁琐去国外平台注册充值，所有账号与 **Codex 手机接码服务**均可在同一网站统一直接购买！
 
 ---
 
@@ -14,9 +14,9 @@ description: 中国大陆小白用户从 0 到 1 成功使用 OpenAI Codex / Cha
 ```mermaid
 flowchart TD
     subgraph 阶段一：网络准备 (解锁访问)
-        A1[访问 https://古拉.com/] --> A2[注册并按月订阅机场套餐]
-        A2 --> A3[安装 Clash Verge Rev 客户端]
-        A3 --> A4[导入订阅，开启系统代理 + 规则模式]
+        A1[用户手动在浏览器打开 https://古拉.com/] --> A2[点击最新二级入口链接]
+        A2 --> A3[注册账号并选择按月订阅套餐]
+        A3 --> A4[安装 Clash Verge Rev 并开启系统代理]
     end
 
     subgraph 阶段二：安装客户端 (突破限制)
@@ -25,12 +25,12 @@ flowchart TD
         B1 -->|Windows| B3[设置区域为美国 -> Winget 一键安装]
     end
 
-    subgraph 阶段三：账号与 Codex 手机接码
-        C1[从 aiprobe.top 获取稳定成品号/代充] --> C2[接码渠道租用号码接收 Codex 短信验证码]
+    subgraph 阶段三：在同一平台一键买号与 Codex 接码
+        C1[在 https://aiprobe.top/ 直接挑选低价 Plus 成品号] --> C2[同一店铺直接购买 Codex 1元单次短信接码服务]
     end
 
     subgraph 阶段四：启动体验 Codex
-        D1[打开桌面应用登录账号] --> D2[解锁 Codex 代码大模型助手]
+        D1[打开应用输入接码完成验证] --> D2[解锁 Codex 代码助手]
     end
 
     A4 --> B1
@@ -41,64 +41,54 @@ flowchart TD
 
 ---
 
+## 💡 为什么小白全流程超简单？
+
+1. **不需要去国外网站繁琐接码**：
+   在 `https://aiprobe.top/` 同一个聚合平台上，售卖 Plus 账号的同一个店铺（如 *一梦AI*、*ai小头*、*奥特曼严选* 等）直接就上架了 **“Codex 专属短信接码服务”**（单次约 1.12元 ~ 2.00元）。
+2. **像买卡密一样直接下单**：
+   无需注册国外平台或换汇，直接在店铺下单获取 Codex 验证服务，提交接收 6 位数验证码即可！
+
+---
+
 ## 阶段一：网络准备 (解决打不开与 403 阻断)
 
-> **小白痛点**：在大陆直接访问 OpenAI 官网或 Codex 会提示“403 Forbidden”或“无法访问”。
-
-1. **访问机场服务商**：在浏览器打开 `https://古拉.com/` (Punycode 映射域名: `https://xn--w4r430a.com/`)。若遇到拦截打不开，请将系统 DNS 改为 `223.5.5.5` 或 `1.1.1.1`。
-2. **注册与购买订阅**：注册账号登录后台，在“商店”购买按月订阅套餐（建议月付降低风险）。
+1. **手动访问防丢失发布站**：在浏览器打开 `https://古拉.com/` (Punycode: `https://xn--w4r430a.com/`)。
+2. **点击最新二级入口**：点击页面上的最新入口按钮进入真正的平台，注册账号并按月订阅套餐。
 3. **下载安装 Clash 客户端**：
-   - **Windows 用户**: 下载安装 [Clash Verge Rev x64 安装包](https://github.com/clash-verge-rev/clash-verge-rev/releases)。
-   - **macOS 用户**: 下载安装 [Clash Verge Rev for Mac](https://github.com/clash-verge-rev/clash-verge-rev/releases)。
-4. **导入并连接代理**：
-   - 在古拉后台点击 **“一键导入 Clash”**。
-   - 在软件界面中选中节点配置，模式选择 **规则模式 (Rule)**，并勾选开启 **系统代理 (System Proxy)**。
+   - **Windows**: 下载 [Clash Verge Rev x64 安装包](https://github.com/clash-verge-rev/clash-verge-rev/releases)。
+   - **macOS**: 下载 [Clash Verge Rev for Mac](https://github.com/clash-verge-rev/clash-verge-rev/releases)。
+4. **导入并连接代理**：后台点击 **“一键导入 Clash”**，软件中选择 **规则模式 (Rule)**，开启 **系统代理 (System Proxy)**。
 
 ---
 
 ## 阶段二：安装 ChatGPT / Codex 桌面版
 
-> **小白痛点**：在 Windows 微软商店搜不到应用，提示“在你所在的地区不可用”。
-
-### macOS 用户指南：
-直接下载官方 DMG 离线包文件：[ChatGPT.dmg](https://persistent.oaistatic.com/codex-app-prod/ChatGPT.dmg)，双击拖入 `Applications` 应用程序文件夹即可完成安装。
-
-### Windows 用户指南（突破区域限制）：
-1. **修改系统地区为美国**：按键盘 **Win + I** 打开设置 -> **时间及语言** -> **区域** -> 将“国家或地区”下拉框修改为 **美国 (United States)**。（*修改即时生效，无需重启*）。
-2. **使用 Winget 一键安装**：以管理员身份打开终端 / PowerShell，运行：
-   ```powershell
-   winget install --id=9NT1R1C2HH7J -e
-   ```
-   提示协议输入 `Y` 回车即可自动安装完成。
+- **macOS**: 直接下载官方 DMG 离线包 [ChatGPT.dmg](https://persistent.oaistatic.com/codex-app-prod/ChatGPT.dmg)，拖入 `Applications` 文件夹。
+- **Windows**: 
+  1. 按 **Win + I** 打开设置 -> 时间及语言 -> 区域 -> 将国家修改为 **美国 (United States)**（即时生效）。
+  2. 以管理员身份打开终端运行：`winget install --id=9NT1R1C2HH7J -e`。
 
 ---
 
-## 阶段三：获取账号与 Codex 手机短信接码
+## 阶段三：同一店铺一键买号与 Codex 接码
 
-> **小白痛点**：没有国外手机号，提示“Need Phone Number Verification for Codex”。
-
-1. **获取账号/Plus 订阅**：
-   - 访问 `https://aiprobe.top/`，系统会自动利用 `/aiprobe-plus-buyer` 过滤掉扫码、提链、免费等杂项，返回纯净且带首登质保的成品号或 Plus 订阅。
-2. **Codex 手机接码验证**：
-   - 使用 SMS 接码客户端（支持 SMS-Activate / 5SIM）。
-   - 选择服务代码 `openai` 或 `dr` (Codex)，租用可接收短信的临时号码（成本约 1-3 元）。
-   - 将租用到的号码填入 OpenAI 验证框，系统会自动轮询获取 6 位数 SMS 验证码完成绑定。
+1. 打开 `https://aiprobe.top/`。
+2. **购买账号/Plus 会员**：直接检索低价带质保的 ChatGPT / Codex 成品号或 Plus 套餐。
+3. **一键购买 Codex 接码**：搜索 `Codex接码` 或在同一店铺直接购买 `GPT Plus / Codex 短信接码服务` 卡密（单次仅需 1 元左右）。
+4. 将接码卡密给到客服或在提取页提交，接收 6 位数验证码填入应用完成激活！
 
 ---
 
 ## 阶段四：启动体验 Codex
 
-1. 打开安装好的 ChatGPT / Codex 桌面应用。
-2. 登录刚刚验证通过的账号。
-3. 即可开始在应用中体验 OpenAI Codex 代码自动生成、智能 Debug 与 Pair Programming 助手！
+1. 打开安装好的桌面应用，输入激活通过的账号。
+2. 即可开始在应用中流畅体验 OpenAI Codex 智能编程助手！
 
 ---
 
-## 💻 命令行快速体验
-
-在终端输入：
+## 💻 检索 Codex 接码服务命令
 
 ```bash
-cd c:\Users\gool\Desktop\skilldb\skills\sk-codex-beginner\scripts
-python cli.py
+cd c:\Users\gool\Desktop\skilldb\skills\aiprobe-plus-buyer\scripts
+python cli.py fetch --category 接码服务 --limit 5
 ```
