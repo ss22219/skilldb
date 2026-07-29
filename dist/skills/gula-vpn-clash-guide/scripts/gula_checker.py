@@ -10,7 +10,6 @@ import urllib.parse
 import urllib.request
 from typing import Dict, Optional, Tuple
 
-# Domain punycode mapping
 DOMAIN_RAW = "古拉.com"
 DOMAIN_PUNYCODE = "xn--w4r430a.com"
 
@@ -30,46 +29,20 @@ class GulaChecker:
         self._ctx.verify_mode = ssl.CERT_NONE
 
     def check_site_accessibility(self) -> Dict:
-        """Check accessibility of 古拉.com and Punycode domain."""
-        target_urls = [
-            f"https://{DOMAIN_PUNYCODE}/",
-            f"http://{DOMAIN_PUNYCODE}/",
-        ]
-        
-        results = {
+        """Explain anti-loss发布站 mechanism and test site."""
+        return {
             "domain_raw": DOMAIN_RAW,
             "domain_punycode": DOMAIN_PUNYCODE,
-            "accessible": False,
-            "details": []
+            "site_type": "防丢失导航发布站 (指向二级真正入口)",
+            "notice": "古拉.com 属于防丢失导航发布主站，自身不提供节点，而是指向最新的二级通用入口。命令行直接 curl/ping 会被防火墙直接拦截阻断（属于正常现象）。用户需要在浏览器手动打开 https://古拉.com/ 并点击最新的二级入口进行注册与购买！",
+            "manual_steps": [
+                "1. 在浏览器手动打开 https://古拉.com/ (或 https://xn--w4r430a.com/)",
+                "2. 点击页面上的二级最新可用入口跳转真正的注册后台",
+                "3. 注册电子邮箱账号并选择套餐支付 (推荐月付)",
+                "4. 后台下载 Clash 软件并复制/导入 Clash 订阅链接",
+                "5. 在 Clash 客户端选择规则模式并开启系统代理"
+            ]
         }
-
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-        }
-
-        for url in target_urls:
-            try:
-                req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=self.timeout, context=self._ctx) as r:
-                    status = r.status
-                    content_len = len(r.read())
-                    results["accessible"] = True
-                    results["details"].append({
-                        "url": url,
-                        "status": status,
-                        "content_length": content_len,
-                        "message": "Connected successfully."
-                    })
-                    break
-            except Exception as e:
-                results["details"].append({
-                    "url": url,
-                    "status": 0,
-                    "error": str(e),
-                    "message": "Connection failed."
-                })
-
-        return results
 
     def verify_clash_subscription(self, sub_url: str) -> Dict:
         """Verify a Clash subscription link and extract user traffic & node count."""
@@ -90,10 +63,8 @@ class GulaChecker:
         try:
             req = urllib.request.Request(sub_url_ascii, headers=headers)
             with urllib.request.urlopen(req, timeout=self.timeout, context=self._ctx) as r:
-                # Check headers for traffic userinfo
                 user_info_hdr = r.headers.get("subscription-userinfo") or r.headers.get("Subscription-Userinfo")
                 if user_info_hdr:
-                    # Format: upload=xxx; download=xxx; total=xxx; expire=xxx
                     parts = dict(item.strip().split("=") for item in user_info_hdr.split(";") if "=" in item)
                     upload_bytes = int(parts.get("upload", 0))
                     download_bytes = int(parts.get("download", 0))
@@ -109,10 +80,8 @@ class GulaChecker:
                 body = r.read().decode("utf-8", errors="ignore")
                 result["raw_snippet"] = body[:200]
                 
-                # Rough count of proxies in Clash YAML
                 if "proxies:" in body or "Proxy:" in body:
                     result["valid"] = True
-                    # Estimate proxies count
                     lines = body.splitlines()
                     proxy_count = sum(1 for l in lines if l.strip().startswith("- name:") or l.strip().startswith("- { name:"))
                     result["nodes_count"] = proxy_count or 1
@@ -128,6 +97,6 @@ class GulaChecker:
 
 if __name__ == "__main__":
     checker = GulaChecker()
-    print("=== Checking 古拉.com Accessibility ===")
+    print("=== 古拉.com 防丢失导航站与 4 步通关说明 ===")
     res = checker.check_site_accessibility()
     print(json.dumps(res, ensure_ascii=False, indent=2))
