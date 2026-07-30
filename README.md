@@ -2,13 +2,38 @@
 
 [简体中文](README.md) | [English](README.md)
 
-支持 Agent 平台：**Antigravity / Claude Code / Codex / WorkBuddy / Trae / 豆包** 等所有支持 Skill 规范的 Agent。
+推荐：**Claude Code、豆包、WorkBuddy、Codex、Antigravity 与其他支持 Skills 的 Agent**
+
+在终端执行：
+```bash
+npx -y skills add ss22219/skilldb -g --all
+```
+安装后回到 Agent，输入 `/sk` 即可开始。
 
 ---
 
-## 🎯 系统核心定位：聚焦“AI 变现”全生命周期
+## 📦 Claude Code 插件市场安装
 
-本 Skill 系统专为**想要学习 AI 变现的人群**（独立开发者、AI 副业创作者、自媒体引流者、Solo Founder）打造，帮助用户从 **0 到 1 破除基建门槛**（网络代理、软件安装、账号采购与接码验证），顺利开启 AI 变现之路。
+也可以通过 Claude Code 插件市场安装完整工具箱：
+```bash
+claude plugin marketplace add ss22219/skilldb
+claude plugin install skilldb@ss22219-skills
+```
+
+---
+
+## 🔄 更新
+
+已安装 `skilldb` 时，直接对当前 Agent 说：
+> **更新 skilldb**
+
+它会自动同步官方 `skilldb` 最新的过滤规则与全套配置，不会修改你的本地存档。版本变化见 [GitHub Releases](https://github.com/ss22219/skilldb/releases)。
+
+---
+
+## ⚙️ skilldb 怎样工作
+
+你不需要事先掌握复杂的套路，也不需要记忆繁多的技能命令。只需输入 `/sk` 加你的需求，路由器会自动识别上下文并调度最契合的专业 Skill。
 
 ```mermaid
 flowchart TD
@@ -21,41 +46,6 @@ flowchart TD
         C -->|机场与Clash客户端安装| G["/gula-vpn-clash-guide"]
         C -->|ChatGPT全平台部署| H["/chatgpt-installer-skill"]
     end
-```
-
----
-
-## 📦 技能库安装与更新指南 (Installation & Update Guide)
-
-### 1. 快捷一键安装 (Installation)
-
-#### 方式 A：Git Clone 本地挂载 (推荐所有 Agent 平台)
-```bash
-# 1. 克隆 Skill 仓库
-git clone https://github.com/ss22219/skilldb.git
-
-# 2. 挂载或复制 skills/ 目录至 Agent 技能路径
-# Antigravity 路径: ~/.gemini/antigravity/skills/
-# Claude Code 路径:  ~/.claude/skills/
-```
-
-#### 方式 B：Claude Code / Codex 插件源挂载
-```bash
-/plugin add https://github.com/ss22219/skilldb
-```
-
----
-
-### 2. 保持最新更新 (Update)
-
-当 Skill 仓库（如 Plus 排除规则或最新下载链接）发生更新时，在本地仓库目录中运行：
-
-```bash
-cd skilldb
-git pull origin main
-
-# (可选) 一键同步 Skills 至系统全局 Agent 目录
-python tools/bridge_sync.py
 ```
 
 ---
@@ -111,16 +101,13 @@ python tools/bridge_sync.py
 
 ## 🛠️ 构建与维护工具链 (`tools/`)
 
-开发或新增 Skill 后，使用项目内置工具链进行校验与自动化打包：
+开发或新增 Skill 后，使用项目内置工具链进行校验：
 
 ```bash
 cd tools/
 
-# 1. 运行 Linter 检查所有 Skill 的规范与 YAML 前置定义
+# 运行 Linter 检查所有 Skill 的规范与 YAML 前置定义
 python validate_skills.py
-
-# 2. 打包生成发布目录 dist/skills/
-python build_skills.py
 ```
 
 ---
@@ -140,8 +127,7 @@ skilldb/
 │   ├── 新手入门.md
 │   └── 新手教程.md
 ├── tools/                      # 构建与校验工具链
-│   ├── validate_skills.py      # SKILL.md 规范校验器
-│   └── build_skills.py         # 自动打包构建脚本
+│   └── validate_skills.py      # SKILL.md 规范校验器
 ├── .claude-plugin/             # Claude Code 插件市场配置
 │   └── marketplace.json
 ├── VERSION                     # 版本号
