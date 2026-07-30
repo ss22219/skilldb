@@ -2,9 +2,6 @@
 
 [简体中文](README.md) | [English](README.md)
 
-> 模仿 [dontbesilent2025/dbskill](https://github.com/dontbesilent2025/dbskill) 构建的高可扩展、模块化 AI Skill 操作系统与知识库引擎。
-> 把真实业务、开发部署、内容策划与行动卡点交给 Agent，获得清晰判决与可以立刻执行的下一步。
-
 支持 Agent 平台：**Antigravity / Claude Code / Codex / WorkBuddy / Trae / 豆包** 等所有支持 Skill 规范的 Agent。
 
 ---
