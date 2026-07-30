@@ -137,6 +137,18 @@ skilldb/
 
 ---
 
+## 💬 联系方式与交流群 (Contact & Community)
+
+如有 Skill 意见反馈、问题交流或交流讨论，欢迎扫码添加微信好友：
+
+- **联系人**：李健宁
+- **微信**：扫描下方二维码添加好友
+
+<img src="docs/assets/contact_qr.png" width="220" alt="李健宁 微信二维码" />
+
+---
+
 ## 📄 许可证
 
 本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。个人使用、学习研究均可自由免费使用。
+
