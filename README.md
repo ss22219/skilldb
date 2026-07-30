@@ -12,13 +12,15 @@
 
 ```mermaid
 flowchart TD
-    A[用户输入 /sk 需求] --> B[sk 智能主路由器]
-    B --> C{选择专业能力 Skill}
-    C -->|小白国内使用Codex从零到一| D["/sk-codex-beginner"]
-    C -->|小白入门通关流程指南| E["/sk-starter"]
-    C -->|低价Plus采购与同店接码| F["/aiprobe-plus-buyer"]
-    C -->|机场与Clash客户端安装| G["/gula-vpn-clash-guide"]
-    C -->|ChatGPT全平台部署| H["/chatgpt-installer-skill"]
+    subgraph router ["路由器调度引擎"]
+        A[用户输入 /sk 需求] --> B[sk 智能主路由器]
+        B --> C{选择专业能力 Skill}
+        C -->|小白国内使用Codex从零到一| D["/sk-codex-beginner"]
+        C -->|小白入门通关流程指南| E["/sk-starter"]
+        C -->|低价Plus采购与同店接码| F["/aiprobe-plus-buyer"]
+        C -->|机场与Clash客户端安装| G["/gula-vpn-clash-guide"]
+        C -->|ChatGPT全平台部署| H["/chatgpt-installer-skill"]
+    end
 ```
 
 ---
@@ -72,14 +74,6 @@ flowchart TD
 
 ---
 
-## 🧠 结构化知识库系统 (`知识库/`)
-
-本系统内嵌了结构化知识原子库，用于 RAG 检索与底层推理：
-- **原子库 (`知识库/原子库/atoms.jsonl`)**: JSONL 格式的模块化知识点，方便导入 Qdrant / Ollama 向量库。
-- **说明文档 (`知识库/README.md`)**: 介绍知识库架构与向量检索使用方法。
-
----
-
 ## 🛠️ 构建与维护工具链 (`tools/`)
 
 开发或新增 Skill 后，使用项目内置工具链进行校验与自动化打包：
@@ -92,9 +86,6 @@ python validate_skills.py
 
 # 2. 打包生成发布目录 dist/skills/
 python build_skills.py
-
-# 3. 桥接同步至系统全局 Agent 目录 (~/.agents/skills)
-python bridge_sync.py
 ```
 
 ---
@@ -103,26 +94,19 @@ python bridge_sync.py
 
 ```
 skilldb/
-├── skills/                     # 核心 Skill 库 (各技能包含 SKILL.md 与脚本)
-│   ├── sk-router/              # 智能分发路由器
-│   ├── sk-diagnosis/           # 商业诊断技能
-│   ├── sk-content/             # 内容策划技能
-│   ├── sk-benchmark/           # 竞品拆解技能
-│   ├── sk-decision/            # 战略决策技能
-│   ├── sk-knowledge/           # 知识库管理技能
-│   ├── sk-bridge/              # 跨 Agent 桥接技能
-│   ├── aiprobe-plus-buyer/     # 低价 Plus 会员与接码技能
-│   ├── gula-vpn-clash-guide/   # 机场与 Clash 全指南技能
-│   └── chatgpt-installer-skill/# ChatGPT 全平台安装技能
-├── 知识库/                     # 结构化知识原子库与方法论
-│   ├── 原子库/                 # atoms.jsonl 知识原子数据
-│   └── README.md
-├── docs/                       # 新手入门与全目录文档
-│   └── 新手入门.md
-├── tools/                      # 构建、校验与同步工具链
+├── skills/                     # 核心 6 大实战 Skill 库
+│   ├── sk-router/              # 智能分发路由器 (/sk)
+│   ├── sk-codex-beginner/      # 国内小白 Codex 0到1通关指南 (/sk-codex-beginner)
+│   ├── sk-starter/             # 新手 3 步入门指南 (/sk-starter)
+│   ├── aiprobe-plus-buyer/     # 低价 Plus 会员与同店接码采购 (/aiprobe-plus-buyer)
+│   ├── gula-vpn-clash-guide/   # 防丢失机场与 Clash 全平台配置 (/gula-vpn-clash-guide)
+│   └── chatgpt-installer-skill/# ChatGPT 桌面版全平台部署与区域突破 (/chatgpt-installer-skill)
+├── docs/                       # 新手入门与通关教程文档
+│   ├── 新手入门.md
+│   └── 新手教程.md
+├── tools/                      # 构建与校验工具链
 │   ├── validate_skills.py      # SKILL.md 规范校验器
-│   ├── build_skills.py         # 自动打包构建脚本
-│   └── bridge_sync.py          # 跨 Agent 同步桥接工具
+│   └── build_skills.py         # 自动打包构建脚本
 ├── .claude-plugin/             # Claude Code 插件市场配置
 │   └── marketplace.json
 ├── VERSION                     # 版本号
@@ -134,4 +118,4 @@ skilldb/
 
 ## 📄 许可证
 
-本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。个人使用、学习研究与非商业项目均可自由免费使用。
+本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。个人使用、学习研究均可自由免费使用。
