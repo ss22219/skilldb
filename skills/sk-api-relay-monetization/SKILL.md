@@ -1,93 +1,80 @@
 ---
 name: sk-api-relay-monetization
-description: 大模型 API 中转站 / API 转接平台商业变现与详细搭建指南 (/sk-api-relay)。包含 Sub2API/Shop2API/cli-proxy-api 仓库选型与架构演进、海外 VPS 购置与 AI 辅助部署、CDK 充值联动、服务器与运维成本评估及定价模型。
+description: 大模型 API 中转站 / API 转接平台商业变现与真实项目部署指南 (/sk-api-relay)。准确解析物理真实存在项目 (Sub2API / New-API / One-API / CLI Proxy API) 仓库与运作机制、海外 VPS 选型、AI 驱动部署、CDK 充值与成本评估定价公式。
 ---
 
-# 大模型 API 中转站商业变现与技术搭建全指南 (/sk-api-relay)
+# 大模型 API 中转站商业变现与真实项目部署指南 (/sk-api-relay)
 
-大模型 API 中转服务（API Relay / Proxy Station）是将 OpenAI, Claude, Midjourney 等大模型 API 接口统一封装，销售给开发者、企事业单位、AI 应用开发者及小白用户的**高毛利/高流水商业变现模式**。
+> [!IMPORTANT]
+> **拒绝模糊概念与幻觉误导**：本指南只针对 GitHub 上**物理真实存在**的开源大模型中转与代理项目（如 `sub2api`、`calciumion/new-api`、`songquanpeng/one-api`）进行精准拆解与部署说明，绝不推荐无关的第三方插件。
 
 ---
 
-## 🧭 架构演进与商业闭环总全景图
+## 🧭 物理真实开源项目选型与底层运作机制
+
+### 1. 真实开源项目一览
+
+| 开源项目名称 | GitHub 物理仓库 | 核心功能与运作原理拆解 |
+| :--- | :--- | :--- |
+| **Sub2API** | `sub2api/sub2api` | **订阅号池转 API 平台**：专门用于将多个 ChatGPT Plus / Claude 官方订阅账号通过 SessionToken / RefreshToken 转化为标准的 OpenAI 格式 API 端口。 |
+| **New-API** | `calciumion/new-api` | **企业级大模型聚合网关**：基于 One-API 深度优化的二开系统。负责多节点聚合、多渠道负载均衡、失败无感自动重试、CDK 兑换码生成与模型分组倍率扣费。 |
+| **One-API** | `songquanpeng/one-api` | **经典大模型分发系统**：最早的开源 LLM API 管理统一接入与二次分发平台。 |
+| **CLI Proxy API** | `cli-proxy-api` / `router-protocol` | **命令行代理转接 API**：将基于 OAuth/网页认证的 CLI 终端工具（如 Claude Code / Codex）封装暴露为标准 OpenAI/Claude API 接口。 |
+
+> [!CAUTION]
+> **避坑澄清**：市面上的 `Shop2API` 实际为 WordPress/WooCommerce 的电商同步插件，并非 AI API 中转系统，切勿混淆！
+
+---
+
+## 二、 架构演进与具体运作流程
 
 ```mermaid
 flowchart TD
-    subgraph arch ["架构选型：从单节点到多节点网关"]
-        M1["新手单节点模式: 订阅账号池 ➔ sub2api / Shop2API ➔ 客户端"]
-        M2["进阶扩容模式: 多个 sub2api/cli-proxy-api 节点 ➔ New-API 聚合网关 ➔ 客户端"]
+    subgraph step1 ["初级阶段：Sub2API 单号池运行模式"]
+        A1[采购 1-3 个 Plus 订阅账号] --> A2[提取 RefreshToken 填入 Sub2API]
+        A2 --> A3[Sub2API 自动转换暴露为标准的 OpenAI API 接口]
     end
 
-    subgraph ops ["AI 驱动部署与成本评估"]
-        O1[海外 VPS 购置: 免备案 1核1-2G 轻量主机] --> O2[AI 驱动 Docker/Caddy 一键部署]
-        O3[运维成本评估: 服务器+域名+账号+住宅IP] --> O4[定价计算: 覆盖成本并确定倍率]
+    subgraph step2 ["高级阶段：多节点 + New-API 网关架构"]
+        B1[多节点部署 Sub2API / CLI Proxy API] --> B2[统一接入 New-API 聚合网关]
+        B2 --> B3[New-API 负责负载均衡 + 失败自动切号 + 发卡网 CDK 充值]
     end
 
-    subgraph convert ["收单与流量转化"]
-        C1[Skill 教程自媒体引流 + 直播帮装软件] --> C2[联动小铺/发卡网卖 CDK 兑换码]
-    end
-
-    arch --> ops --> convert
+    step1 --> step2
 ```
 
----
-
-## 一、 核心开源仓库与软件架构选型
-
-### 1. 核心开源组件仓库
-
-- **`sub2api` / `Shop2API`**
-  - **定位**：专门用于将单个或多个 ChatGPT Plus / Claude 官方订阅账号转化为标准 OpenAI API 格式的转接与号池管理系统。
-  - **功能**：自动管理账号 Session/RefreshToken、自动轮询账号池、处理模型映射与 Token 统计。
-- **`cli-proxy-api` / `cliproxyapi`**
-  - **定位**：轻量级命令行代理转 API 工具，适合快速单机部署与代理桥接。
-- **`New-API` / `One-API`**
-  - **定位**：多节点统一聚合网关与分发路由系统。
+### 1. Sub2API 底层运作机制
+1. **账号凭证提取**：站长通过浏览器控制台或脚本获取 Plus 账号的 `AccessToken` / `RefreshToken`。
+2. **号池自动轮询**：`Sub2API` 后台维护号池，收到 API 请求时自动选择可用账号转发至 OpenAI Web 后端。
+3. **协议映射与计费**：将 Web 端的流式输出（SSE）解析映射为标准 `/v1/chat/completions` JSON 格式响应给客户端，并精确统计 Token 消耗。
 
 ---
 
-### 2. 架构演进路线：新手单节点 ➔ 进阶多节点
+## 三、 服务器购置与 AI 辅助自动化部署
 
-#### 阶段 A：新手单节点模式 (`Shop2API` / `sub2api` 单机)
-针对刚入门的小白站长，无需构建复杂的多机集群：
-- 直接在单台海外 VPS 上部署一个 `sub2api` 或 `Shop2API` 实例。
-- 绑定 1~3 个 Plus 订阅账号构建底层账号池。
-- 用户直接调用 `sub2api` 提供的 API 地址或使用 CDK 兑换余额。
+### 1. 海外 VPS 服务器购置指南
 
-#### 阶段 B：中后期多节点扩容模式 (`Shop2API` 多节点 + `New-API` 聚合网关)
-当业务量和并发 QPS 增长后：
-- 在不同地区的服务器（如香港、东京、美西）部署多个 `sub2api` / `cli-proxy-api` 转接节点。
-- 在顶层部署 `New-API` 作为统一控制台与路由网关。
-- `New-API` 负责聚合所有节点，做跨节点的**负载均衡、失败无感自动重试与多租户计费**。
+- **为什么必须选海外服务器**：国内云服务器（阿里云/腾讯云）由于网络封锁无法直连 OpenAI/Claude 接口，且必须要 ICP 备案。
+- **推荐提供商**：**RackNerd、Cloudcone、Vultr、DigitalOcean、雨云海外 VPS**。
+- **配置推荐**：新手阶段购买**轻量型云主机（1核 1GB/2GB 内存，月费约 $1.5~$3 刀，年费约 $10~$20 刀）**即可稳定支撑每天数万次请求。
 
 ---
 
-## 二、 服务器购置与 AI 辅助自动化部署
+### 2. 利用 AI 驱动服务器自动化部署
 
-### 1. 服务器购置策略
+小白站长无需熟记 Linux 命令，可使用具备 SSH 执行能力的 AI Agent（如 Claude Code, Antigravity 或终端 AI 插件）直接向 AI 下达部署指令：
 
-| 评估维度 | 推荐方案与细节说明 |
-| :--- | :--- |
-| **购买渠道** | **必须购买海外云服务器 VPS**（如 RackNerd、Cloudcone、Vultr、DigitalOcean、雨云海外 VPS 等）。<br>❌ *绝对不要用国内云服务器*（必须 ICP 备案且存在网络封锁风险）。 |
-| **配置与策略** | 新手初期选择**低成本轻量云主机**（如 1核 1GB/2GB 内存，月费仅约 $1.5~$3 刀 / 年费约 $10~$20 刀）。<br>待日均 Token 消耗量增多后再弹性扩容。 |
+#### 提示词模板 (Prompt)：
+> *"我刚购置了一台 Ubuntu 22.04 海外 VPS（IP: xxx.xxx.xxx.xxx），请帮我自动执行以下动作：1. 安装 Docker 与 Docker-Compose；2. 部署 sub2api/sub2api 容器；3. 配置 Caddy 反向代理并申请 api.mydomain.com 的 SSL 证书。"*
 
----
-
-### 2. 利用 AI 控制服务器与极速部署
-
-小白站长无需学习复杂的 Linux 运维命令，可通过支持 SSH / Shell 执行的 AI Agent（如 Claude Code, Antigravity 或 SSH 连线）提示 AI 自动完成以下部署：
-
-#### 提示词示例 (Prompt 用法)：
-> *"我刚购买了一台 Ubuntu 22.04 海外 VPS，请帮我自动安装 Docker、Docker-Compose、安装 Caddy 申请 api.mydomain.com 的 SSL 证书，并用 Docker 部署最新版的 sub2api/Shop2API。"*
-
-#### 自动化部署 Shell 脚本命令（供 AI 或运维自动执行）：
+#### 自动化部署脚本与配置文件：
 
 ```bash
-# 1. 一键安装 Docker 环境
+# 1. 自动安装 Docker
 curl -fsSL https://get.docker.com | sh
 systemctl enable --now docker
 
-# 2. 创建 sub2api 工作目录与配置
+# 2. 创建 Sub2API 目录与 Docker-Compose 配置
 mkdir -p /opt/sub2api && cd /opt/sub2api
 
 cat << 'EOF' > docker-compose.yml
@@ -105,47 +92,35 @@ services:
       - ./data:/app/data
 EOF
 
-# 3. 启动服务
+# 3. 启动 Sub2API
 docker compose up -d
 ```
 
 ---
 
-## 三、 收单与收费方式 (CDK 卡密充值)
+## 四、 收单发卡与成本评估定价模型
 
-对于新手而言，对接复杂的海外支付网关（如 Stripe/PayPal）门槛过高且易遭冻结，**强烈推荐 CDK 兑换码模式**：
-
-1. **收单渠道**：使用**联动小铺**或各大开源/第三方自动发卡网（如发卡网商城）。
-2. **收费流程**：
-   - 站长在 `sub2api` / `New-API` 后台批量生成指定面额的 **CDK 兑换码**（如 5元、10元、50元、100元面额）。
-   - 将 CDK 上架至联动小铺发卡网，客户支持微信/支付宝一键付款。
-   - 付款后系统自动发货 CDK 卡密，客户在 API 中转站后台点击“卡密充值”，即可瞬间兑换为额度并生成 API Key。
+### 1. 收单流程（联动小铺 / 发卡网卖 CDK）
+新手无需对接复杂的海外信用卡网关：
+1. 站长在 `New-API` 或 `Sub2API` 后台批量生成指定面额的 **CDK 兑换码**（如 5元、10元、50元、100元）。
+2. 将 CDK 上架至**联动小铺发卡网**，客户付款后系统自动发放卡密。
+3. 客户在 API 中转站点击“充值 (Top-up)”，输入卡密即可增加可用余额并生成 API Key。
 
 ---
 
-## 四、 成本评估与精细化定价模型
+### 2. 服务器运维成本评估与科学定价公式
 
-在最终为中转 API 定价前，**必须先精确评估服务器与全套运维成本**，以确保覆盖成本并获得稳定的净利润。
-
-### 1. 全套运维成本计算公式
+在定价前，站长必须先精确算准**月度全套运维成本**：
 
 $$\text{月度总运维成本 (Cost)} = \text{VPS服务器月费} + \text{域名摊销} + \text{Plus账号采购成本} + \text{住宅 IP 代理费}$$
 
-- **成本构成明细**：
-  - **海外 VPS 成本**：约 ¥15 ~ ¥30 / 月
-  - **域名成本**：约 ¥5 / 月（以年费 60 元计算）
-  - **Plus 订阅号池成本**：按采购的 Plus 账号数量计算（如采购 2 个独享号，约 ¥280 / 月）
-  - **住宅 IP (Proxy) 成本**：按流量或月租计算（约 ¥30 ~ ¥50 / 月，防止多号共用 IP 导致联动封号）
+- **保本单价计算**：
+  假设每月 VPS + 域名 + 2个 Plus 账号 + 住宅代理总成本为 **350 元人民币**，预计提供 **$200 美元总额度**：
+  $$\text{保本单价} = \frac{350 \text{ 元}}{200 \text{ 美元}} = 1.75 \text{ 元 / \$ 额度}$$
 
-### 2. 科学定价与倍率算法
-
-假设月度总运维成本为 $\text{Cost} = 350 \text{ 元}$，预计提供总额度 $\text{Quota} = \$200 \text{ 美元}$：
-
-$$\text{保本单价/美元额度} = \frac{350 \text{ 元}}{200 \text{ 美元}} = 1.75 \text{ 元 / \$}$$
-
-- **售卖定价方案**：
-  - **薄利多销模式（加价 10%~20%）**：将 CDK 售价定为 **2.0 元 / $ 额度**。凭极低价格吸引大量开发者，靠大流水获得稳定被动收益。
-  - **高毛利模式（加价 50%+）**：将售价定为 **2.8 ~ 3.5 元 / $ 额度**，适合走定制化小圈子、提供一对一技术调试指导的服务。
+- **两大定价变现路线**：
+  1. **低价 10% 薄利跑大流水模式（推荐）**：将售价定为 **2.0 元 / $ 额度**（微幅加价 10%~15%），靠 Skill 教程自媒体引流和低价优势做大用户量与每日 Token 消耗流水，获得稳健的被动收入。
+  2. **高毛利模式**：将售价定为 **2.8 ~ 3.5 元 / $ 额度**，提供一对一远程安装指导与技术支持。
 
 ---
 
