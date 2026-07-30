@@ -13,23 +13,23 @@ description: 中国大陆小白用户从 0 到 1 成功使用 OpenAI Codex / Cha
 
 ```mermaid
 flowchart TD
-    subgraph 阶段一：网络准备 (解锁访问)
+    subgraph step1 ["阶段一：网络准备 (解锁访问)"]
         A1[用户手动在浏览器打开 https://古拉.com/] --> A2[点击最新二级入口链接]
         A2 --> A3[注册账号并选择按月订阅套餐]
         A3 --> A4[安装 Clash Verge Rev 并开启系统代理]
     end
 
-    subgraph 阶段二：安装客户端 (突破限制)
+    subgraph step2 ["阶段二：安装客户端 (突破限制)"]
         B1{系统类型判断}
         B1 -->|macOS| B2[下载 ChatGPT.dmg 官方离线包]
         B1 -->|Windows| B3[设置区域为美国 -> Winget 一键安装]
     end
 
-    subgraph 阶段三：在同一平台一键买号与 Codex 接码
+    subgraph step3 ["阶段三：在同一平台一键买号与 Codex 接码"]
         C1[在 https://aiprobe.top/ 直接挑选低价 Plus 成品号] --> C2[同一店铺直接购买 Codex 1元单次短信接码服务]
     end
 
-    subgraph 阶段四：启动体验 Codex
+    subgraph step4 ["阶段四：启动体验 Codex"]
         D1[打开应用输入接码完成验证] --> D2[解锁 Codex 代码助手]
     end
 

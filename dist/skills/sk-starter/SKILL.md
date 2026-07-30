@@ -13,20 +13,21 @@ description: ChatGPT 从零到一通关全流程新手教程 Skill (/sk-starter)
 
 ```mermaid
 flowchart TD
-    subgraph 第一步：配置 VPN 网络
+    subgraph step1 ["第一步：配置 VPN 网络"]
         A1[访问 https://古拉.com/] --> A2[注册并按月订阅机场套餐]
-        A2 --> A3[下载配置 Clash 客户端并开启系统代理]
+        A2 --> A3[安装 Clash Verge Rev 客户端]
+        A3 --> A4[导入订阅，开启系统代理 + 规则模式]
     end
 
-    subgraph 第二步：安装 ChatGPT 客户端
+    subgraph step2 ["第二步：安装 ChatGPT 客户端"]
         B1{系统类型判断}
-        B1 -->|macOS| B2[下载 DMG 离线包安装]
-        B1 -->|Windows| B3[设置区域为“美国”] --> B4[Winget/MSIX 部署]
+        B1 -->|macOS| B2[下载 ChatGPT.dmg 官方离线包]
+        B1 -->|Windows| B3[设置区域为美国 -> Winget 一键安装]
     end
 
-    subgraph 第三步：购买账号与 Plus 订阅
-        C1[访问 https://aiprobe.top/] --> C2[对比购买低价 Plus 成品号/代充]
-        C2 --> C3[接入 SMS-Activate 租号接收 OTP 验证码]
+    subgraph step3 ["第三步：购买账号与 Plus 订阅"]
+        C1[访问 https://aiprobe.top/] --> C2[检索低价带质保的账号/Plus]
+        C2 --> C3[同一店铺购买 Codex 1元短信接码卡密]
     end
 
     A3 --> B1

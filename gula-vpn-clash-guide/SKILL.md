@@ -14,20 +14,20 @@ description: 详细指导用户访问古拉防丢失发布站 (https://古拉.co
 
 ```mermaid
 flowchart TD
-    subgraph 步骤 1：访问防丢失站获取最新入口
+    subgraph step1 ["步骤 1：访问防丢失站获取最新入口"]
         A1[用户在浏览器手动打开 https://古拉.com/] --> A2[点击页面上的二级最新可用入口链接]
     end
 
-    subgraph 步骤 2：注册账号与购买套餐
+    subgraph step2 ["步骤 2：注册账号与购买套餐"]
         B1[在二级入口网站注册电子邮箱账号] --> B2[登录后台进入商店选择套餐]
         B2 --> B3[完成支付激活订阅 推荐月付]
     end
 
-    subgraph 步骤 3：下载客户端与获取订阅
+    subgraph step3 ["步骤 3：下载客户端与获取订阅"]
         C1[在后台页面下载对应系统的软件] --> C2[点击 一键导入Clash 或复制 Clash 订阅链接]
     end
 
-    subgraph 步骤 4：导入订阅与开启代理
+    subgraph step4 ["步骤 4：导入订阅与开启代理"]
         D1[打开 Clash Verge 客户端导入订阅] --> D2[选择 规则模式 Rule]
         D2 --> D3[勾选 开启系统代理 System Proxy] --> D4[网络配置完成！]
     end
