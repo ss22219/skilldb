@@ -25,6 +25,41 @@ flowchart TD
 
 ---
 
+## 📦 技能库安装与更新指南 (Installation & Update Guide)
+
+### 1. 快捷一键安装 (Installation)
+
+#### 方式 A：Git Clone 本地挂载 (推荐所有 Agent 平台)
+```bash
+# 1. 克隆 Skill 仓库
+git clone https://github.com/ss22219/skilldb.git
+
+# 2. 挂载或复制 skills/ 目录至 Agent 技能路径
+# Antigravity 路径: ~/.gemini/antigravity/skills/
+# Claude Code 路径:  ~/.claude/skills/
+```
+
+#### 方式 B：Claude Code / Codex 插件源挂载
+```bash
+/plugin add https://github.com/ss22219/skilldb
+```
+
+---
+
+### 2. 保持最新更新 (Update)
+
+当 Skill 仓库（如 Plus 排除规则或最新下载链接）发生更新时，在本地仓库目录中运行：
+
+```bash
+cd skilldb
+git pull origin main
+
+# (可选) 一键同步 Skills 至系统全局 Agent 目录
+python tools/bridge_sync.py
+```
+
+---
+
 ## ⚡️ 快速开始
 
 在 Agent 终端或聊天框中直接使用：
