@@ -1,0 +1,27 @@
+{
+  "name": "skilldb",
+  "version": "1.0.0",
+  "description": "High-scalability Modular AI Skills System & Monetization Engine",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ss22219/skilldb.git"
+  },
+  "keywords": [
+    "ai",
+    "skills",
+    "antigravity",
+    "claude-code",
+    "codex",
+    "one-api",
+    "new-api",
+    "sub2api",
+    "monetization"
+  ],
+  "author": "Li Jianning",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/ss22219/skilldb/issues"
+  },
+  "homepage": "https://github.com/ss22219/skilldb#readme"
+}
