@@ -139,12 +139,9 @@ skilldb/
 
 ## 💬 联系方式与交流群 (Contact & Community)
 
-如有 Skill 意见反馈、问题交流或交流讨论，欢迎扫码添加微信好友：
+如有 Skill 意见反馈、问题交流或交流讨论，欢迎扫码添加微信：
 
-- **联系人**：李健宁
-- **微信**：扫描下方二维码添加好友
-
-<img src="docs/assets/contact_qr.png" width="220" alt="李健宁 微信二维码" />
+<img src="docs/assets/contact_qr.png" width="220" alt="微信二维码" />
 
 ---
 
