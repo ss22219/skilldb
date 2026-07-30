@@ -33,19 +33,20 @@ claude plugin install skilldb@ss22219-skills
 
 ## ⚙️ skilldb 怎样工作
 
-`sk` 是 Skill System 的总指挥与调度路由器。用户无需记忆具体的 Skill 名称，只需在命令前加 `/sk`，系统会自动调度最契合的通关 Skill。
+`sk` 是 Skill System 的总指挥与调度路由器。用户无需记忆具体的 Skill 名称，只需在命令前加 `/sk`，系统会自动调度最契合的通关 Skill。底层采用 **【流量 ➔ 转化 ➔ 交付】** 商业闭环引擎作为核心判决依据。
 
 ```mermaid
 flowchart TD
     subgraph router ["路由器调度引擎"]
         A[用户输入 /sk 需求] --> B[sk 智能主路由器]
         B --> C{选择专业能力 Skill}
-        C -->|API 中转站搭建与赚钱| D["/sk-api-relay"]
-        C -->|小白国内使用Codex从零到一| E["/sk-codex-beginner"]
-        C -->|小白入门通关流程指南| F["/sk-starter"]
-        C -->|低价Plus采购与同店接码| G["/aiprobe-plus-buyer"]
-        C -->|机场与Clash客户端安装| H["/gula-vpn-clash-guide"]
-        C -->|ChatGPT全平台部署| I["/chatgpt-installer-skill"]
+        C -->|底层商业闭环判定与找项目| D["/sk-business"]
+        C -->|API 中转站搭建与赚钱| E["/sk-api-relay"]
+        C -->|小白国内使用Codex从零到一| F["/sk-codex-beginner"]
+        C -->|小白入门通关流程指南| G["/sk-starter"]
+        C -->|低价Plus采购与同店接码| H["/aiprobe-plus-buyer"]
+        C -->|机场与Clash客户端安装| I["/gula-vpn-clash-guide"]
+        C -->|ChatGPT全平台部署| J["/chatgpt-installer-skill"]
     end
 ```
 
@@ -57,12 +58,13 @@ flowchart TD
 
 ### 1. 智能路由唤醒 (`/sk`)
 ```text
-/sk 想搭建大模型 API 中转站卖 Key 赚钱，怎么操作？
+/sk 怎么判断一个 AI 项目能不能赚钱？怎么在自媒体上找对标像素级模仿？
 ```
 
 ### 2. 显式调用具体技能
 ```text
-/sk-api-relay            大模型 API 中转站搭建与商业变现指南 (New-API/套利/自动发卡)
+/sk-business             底层商业闭环判定与自媒体 4 步寻找/复刻对标项目指南
+/sk-api-relay            大模型 API 中转站搭建与商业变现指南 (Sub2API/New-API/套利/自动发卡)
 /sk-codex-beginner       国内小白使用 Codex 的全流程通关指南
 /sk-starter              新手入门 3 步通关基础教程
 /aiprobe-plus-buyer      抓取 aiprobe.top 纯净低价 Plus 账号与 Codex 1元短信接码卡密
@@ -77,6 +79,7 @@ flowchart TD
 | 技能标识 (Skill ID) | 推荐指令 | 核心功能与避坑细节说明 |
 | :--- | :--- | :--- |
 | **`sk-router`** | `/sk` | **主分发路由器**：智能识别用户意图并自动匹配调度最优 Skill。 |
+| **`sk-monetization-framework`** | `/sk-business` | **底层商业闭环判定引擎**：定义【流量 ➔ 转化 ➔ 交付】商业闭环三要素、判定项目能否赚钱的标准，提供自媒体 4 步寻找与像素级模仿复刻对标项目的实操方法论。 |
 | **`sk-api-relay-monetization`** | `/sk-api-relay` | **大模型 API 中转站赚钱**：开源物理项目 `Sub2API` (`sub2api/sub2api`) / `New-API` (`calciumion/new-api`) 部署演进、海外 VPS 免备案购买、AI 驱动自动部署、联动小铺/发卡网 CDK 售卖、全套运维成本评估与 10% 薄利跑量/高毛利定价模型。 |
 | **`sk-codex-beginner`** | `/sk-codex-beginner` | **国内小白 Codex 从零到一通关指南**：说明网络解锁、Windows 区域改美国、以及在同一卡密平台购买 Codex 1元接码服务全流程。 |
 | **`sk-starter`** | `/sk-starter` | **新手 3 步通关指南**：从 0 到 1 引导网络代理配置、客户端部署与账号采购。 |
@@ -88,22 +91,26 @@ flowchart TD
 
 ## 📖 新手教程关键细节摘录
 
-### 1. API 中转站商业变现与真实物理项目
+### 1. 底层商业闭环与自媒体 4 步寻找法
+- **商业闭环判决**：任何 AI 变现项目必须具备【流量 ➔ 转化 ➔ 交付】全链路才算合格，三者缺一不可。
+- **自媒体 4 步模仿**：`(a) 搜索对标` (利用搜索工具找热点) ➔ `(b) 筛选验证` (确认同行持续盈利) ➔ `(c) 拆解全链路` (剖析流量/转化/交付) ➔ `(d) 像素级模仿` (100% 复制已验证路径快速拿到商业结果)。
+
+### 2. API 中转站商业变现与真实物理项目
 - **物理真实项目避坑**：使用物理真实存在的 `sub2api/sub2api`（订阅号池转 API）、`calciumion/new-api`（大模型聚合网关）与 `cli-proxy-api`，摒弃与 AI 无关的电商插件。
 - **流量与转化**：开源 Skill 工具箱教程自媒体引流，直播免费帮装软件配环境现场转化（80%+ 高转化），向客户突出“价格低、稳定性高、随时充值不过期、免国外卡与接码+一对一技术支持”4 大卖点。
 - **架构与部署演进**：新手初级阶段单节点部署 `Sub2API` 挂载 Plus 订阅号池；业务扩容阶段多节点部署并由 `New-API` 统一路由网关聚合做负载均衡。
 - **海外 VPS 与 AI 部署**：选择 RackNerd / Cloudcone / Vultr 等海外免备案 VPS（1核1-2G 轻量主机），直接通过 AI Agent（Claude Code/Antigravity）自动化部署 Docker、Caddy SSL 证书与容器。
 - **CDK 发卡收单与成本评估**：上架联动小铺/发卡网卖 CDK 兑换码；定价前先通过 `总成本 = VPS月费 + 域名 + Plus账号采购 + 住宅IP代理` 算准保本单价，自由选择 **10% 薄利跑大流水模式** 或 **高毛利模式**。
 
-### 2. 网络配置细节 (古拉防丢失主站 + 4 步法)
+### 3. 网络配置细节 (古拉防丢失主站 + 4 步法)
 - **主站性质**：`https://古拉.com/` (`xn--w4r430a.com`) 为防丢失导航发布站，主站不直接提供节点，而是**指向最新二级入口**。必须由用户在浏览器手动打开点开跳转！
 - **4 步配置**：手动打开获取二级入口 -> 注册邮箱并选择套餐（**强烈建议按月订阅**） -> 下载 Clash Verge Rev 软件并导入订阅 -> 切换 **规则模式 (Rule)** 并开启 **系统代理 (System Proxy)**。
 
-### 3. Windows 客户端安装突破限制细节
+### 4. Windows 客户端安装突破限制细节
 - **修改系统区域**：按 **Win + I** 打开设置 -> **时间及语言** -> **区域** -> 将国家修改为 **美国 (United States)**（即时生效，解决商店搜不到或不可用）。
 - **管理员 PowerShell 安装**：运行 `winget install --id=9NT1R1C2HH7J -e`。
 
-### 4. 买号与 Codex 短信接码细节
+### 5. 买号与 Codex 短信接码细节
 - **过滤排除规则**：系统自动剔除 `提链`、`提炼`、`扫码`、`二维码`、`free`、`免费`、`普号`、`icloud`、`非Plus` 等干扰项。
 - **同一平台同一店铺接码**：小白无需注册国外接码网站，在 `https://aiprobe.top/` 同一个店铺（如 *一梦AI*、*ai小头*、*奥特曼严选* 等）即可像买卡密一样直接购买 Codex 短信接码服务（单次约 1 元左右）。
 
@@ -126,8 +133,9 @@ python validate_skills.py
 
 ```
 skilldb/
-├── skills/                     # 核心 7 大实战 Skill 库
+├── skills/                     # 核心 8 大实战 Skill 库
 │   ├── sk-router/              # 智能分发路由器 (/sk)
+│   ├── sk-monetization-framework/# 底层商业闭环判定与找项目框架 (/sk-business)
 │   ├── sk-api-relay-monetization/# 大模型 API 中转站赚钱指南 (/sk-api-relay)
 │   ├── sk-codex-beginner/      # 国内小白 Codex 0到1通关指南 (/sk-codex-beginner)
 │   ├── sk-starter/             # 新手 3 步入门指南 (/sk-starter)

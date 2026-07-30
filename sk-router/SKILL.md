@@ -16,12 +16,13 @@ flowchart TD
     subgraph router ["路由器调度引擎"]
         A[用户输入 /sk 需求] --> B[sk 智能主路由器]
         B --> C{选择专业能力 Skill}
-        C -->|API 中转站搭建与变现| D["/sk-api-relay"]
-        C -->|小白国内使用Codex从零到一| E["/sk-codex-beginner"]
-        C -->|小白入门通关流程指南| F["/sk-starter"]
-        C -->|低价Plus采购与同店接码| G["/aiprobe-plus-buyer"]
-        C -->|机场与Clash客户端安装| H["/gula-vpn-clash-guide"]
-        C -->|ChatGPT全平台部署| I["/chatgpt-installer-skill"]
+        C -->|底层商业闭环判定与找项目| D["/sk-business"]
+        C -->|API 中转站搭建与变现| E["/sk-api-relay"]
+        C -->|小白国内使用Codex从零到一| F["/sk-codex-beginner"]
+        C -->|小白入门通关流程指南| G["/sk-starter"]
+        C -->|低价Plus采购与同店接码| H["/aiprobe-plus-buyer"]
+        C -->|机场与Clash客户端安装| I["/gula-vpn-clash-guide"]
+        C -->|ChatGPT全平台部署| J["/chatgpt-installer-skill"]
     end
 ```
 
@@ -29,16 +30,17 @@ flowchart TD
 
 ## 核心功能规范
 
-1. **自动识别与分发**：根据用户输入的描述，匹配相应的通关 Skill。
-2. **多轮引导**：在完成某一阶段操作后，提示下一步可调用的子技能（如：搭建中转站后，引导使用 `/aiprobe-plus-buyer` 采购渠道）。
+1. **商业闭环判决**：优先基于 `/sk-business` 进行【流量 ➔ 转化 ➔ 交付】判定，评估用户需求是否具备商业闭环。
+2. **自动识别与分发**：根据用户输入的描述，匹配相应的通关 Skill。
+3. **多轮引导**：在完成某一阶段操作后，提示下一步可调用的子技能（如：判定完中转站项目后，引导使用 `/sk-api-relay` 部署与搭建）。
 
 ---
 
 ## 使用示例
 
 ```bash
-# 智能分析中转站变现
-/sk 想搭建一个大模型 API 中转站卖 key 赚钱，怎么操作？
+# 评估商业闭环与找对标
+/sk 怎么判断一个 AI 项目能不能赚钱？怎么在自媒体上找对标？
 
-# 系统转接至 /sk-api-relay 并输出从部署到发卡的全套路线
+# 系统转接至 /sk-business 并输出商业闭环判定模型与自媒体 4 步模仿法
 ```

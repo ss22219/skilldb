@@ -10,6 +10,11 @@
       "path": "skills/sk-router"
     },
     {
+      "name": "sk-business",
+      "description": "AI Monetization Foundation Commercial Closed-Loop & Benchmarking Skill",
+      "path": "skills/sk-monetization-framework"
+    },
+    {
       "name": "sk-api-relay",
       "description": "AI API Relay Station Monetization & Setup Skill",
       "path": "skills/sk-api-relay-monetization"
