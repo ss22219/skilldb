@@ -19,8 +19,6 @@ flowchart TD
     C -->|低价Plus采购与同店接码| F[/aiprobe-plus-buyer]
     C -->|机场与Clash客户端安装| G[/gula-vpn-clash-guide]
     C -->|ChatGPT全平台部署| H[/chatgpt-installer-skill]
-    C -->|重大选择/下行风险| I[/sk-decision 决策框架]
-    C -->|RAG知识检索| J[/sk-knowledge 知识库]
 ```
 
 ---
@@ -37,28 +35,21 @@ flowchart TD
 ### 2. 显式调用具体技能
 ```text
 /sk-codex-beginner       国内小白使用 Codex 的全流程通关指南
+/sk-starter              新手入门 3 步通关基础教程
 /aiprobe-plus-buyer      抓取 aiprobe.top 纯净低价 Plus 账号与 Codex 1元短信接码卡密
 /gula-vpn-clash-guide    访问古拉防丢失发布站与全平台 Clash 配置指导
 /chatgpt-installer-skill 安装 Windows / macOS ChatGPT 桌面版客户端
 ```
-/sk-benchmark    我想研究企业服务内容账号，应该找哪些对标？
-/sk-decision     我想离职出来做全职 AI 顾问，如何评估下行风险？
-/sk-knowledge    帮我把这个文件夹变成知识库，以后直接搜索。
-/aiprobe-plus-buyer      抓取当前最低价的 ChatGPT Plus 会员并准备接码。
-/gula-vpn-clash-guide    指引如何订阅古拉.com 并安装 Windows/macOS Clash 客户端。
-/chatgpt-installer-skill  突破 Windows 区域限制一键安装官方 ChatGPT 桌面版。
-```
 
 ---
 
-## 🧩 技能全目录
-
-| 技能指令 | 技能名称 | 目录路径 | 说明 |
-### 核心技能说明 (Core Skills Details)
+## 🧩 核心技能目录 (Core Skills Catalog)
 
 | 技能标识 (Skill ID) | 推荐指令 | 核心功能与避坑细节说明 |
 | :--- | :--- | :--- |
+| **`sk-router`** | `/sk` | **主分发路由器**：智能识别用户意图并自动匹配调度最优 Skill。 |
 | **`sk-codex-beginner`** | `/sk-codex-beginner` | **国内小白 Codex 从零到一通关指南**：说明网络解锁、Windows 区域改美国、以及在同一卡密平台购买 Codex 1元接码服务全流程。 |
+| **`sk-starter`** | `/sk-starter` | **新手 3 步通关指南**：从 0 到 1 引导网络代理配置、客户端部署与账号采购。 |
 | **`aiprobe-plus-buyer`** | `/aiprobe-plus-buyer` | **ChatGPT Plus / Codex 采购与同店接码**：实时抓取 `aiprobe.top` 数据，自动过滤 `提链/提炼/扫码/free/普号/icloud`，支持直接买账号与同一店铺买接码服务。 |
 | **`gula-vpn-clash-guide`**| `/gula-vpn-clash-guide` | **古拉 VPN 与 Clash 配置指南**：说明 `古拉.com` 作为**防丢失导航发布主站**的机制（需手动在浏览器点开获取二级入口），并提供 4 步完整配置指导。 |
 | **`chatgpt-installer-skill`**| `/chatgpt-installer-skill` | **ChatGPT 桌面版跨平台安装**：解决 Windows 微软商店“在所在地区不可用”问题（修改区域为美国 + Winget `9NT1R1C2HH7J` / `.msixbundle` 离线包）。 |

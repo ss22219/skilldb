@@ -33,21 +33,6 @@
       "name": "sk-starter",
       "description": "Beginner 3-Step Starter Walkthrough Skill",
       "path": "skills/sk-starter"
-    },
-    {
-      "name": "sk-decision",
-      "description": "Strategic Decision & Risk Framework Skill",
-      "path": "skills/sk-decision"
-    },
-    {
-      "name": "sk-knowledge",
-      "description": "Local & Remote RAG Knowledge Base Management Skill",
-      "path": "skills/sk-knowledge"
-    },
-    {
-      "name": "sk-bridge",
-      "description": "Multi-Agent Environment Bridge Sync Skill",
-      "path": "skills/sk-bridge"
     }
   ]
 }
