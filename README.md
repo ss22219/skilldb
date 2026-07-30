@@ -14,11 +14,11 @@
 flowchart TD
     A[用户输入 /sk 需求] --> B[sk 智能主路由器]
     B --> C{选择专业能力 Skill}
-    C -->|小白国内使用Codex从零到一| D[/sk-codex-beginner]
-    C -->|小白入门通关流程指南| E[/sk-starter]
-    C -->|低价Plus采购与同店接码| F[/aiprobe-plus-buyer]
-    C -->|机场与Clash客户端安装| G[/gula-vpn-clash-guide]
-    C -->|ChatGPT全平台部署| H[/chatgpt-installer-skill]
+    C -->|小白国内使用Codex从零到一| D["/sk-codex-beginner"]
+    C -->|小白入门通关流程指南| E["/sk-starter"]
+    C -->|低价Plus采购与同店接码| F["/aiprobe-plus-buyer"]
+    C -->|机场与Clash客户端安装| G["/gula-vpn-clash-guide"]
+    C -->|ChatGPT全平台部署| H["/chatgpt-installer-skill"]
 ```
 
 ---

@@ -13,13 +13,15 @@ description: 智能主分发路由 Skill (/sk)。自动读取当前对话上下�
 
 ```mermaid
 flowchart TD
-    A[用户输入 /sk + 需求/材料] --> B[意图识别与上下文分析]
-    B --> C{识别需求类型}
-    C -->|国内小白 Codex 从零到一通关| D[/sk-codex-beginner]
-    C -->|新手 3 步入门通关指南| E[/sk-starter]
-    C -->|低价 Plus 采购与同店接码| F[/aiprobe-plus-buyer]
-    C -->|机场与 Clash 客户端安装| G[/gula-vpn-clash-guide]
-    C -->|ChatGPT 客户端全平台部署| H[/chatgpt-installer-skill]
+    subgraph router ["路由器调度引擎"]
+        A[用户输入 /sk + 需求/材料] --> B[意图识别与上下文分析]
+        B --> C{识别需求类型}
+        C -->|国内小白 Codex 从零到一通关| D["/sk-codex-beginner"]
+        C -->|新手 3 步入门通关指南| E["/sk-starter"]
+        C -->|低价 Plus 采购与同店接码| F["/aiprobe-plus-buyer"]
+        C -->|机场与 Clash 客户端安装| G["/gula-vpn-clash-guide"]
+        C -->|ChatGPT 客户端全平台部署| H["/chatgpt-installer-skill"]
+    end
 ```
 
 ---
