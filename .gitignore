@@ -1,0 +1,14 @@
+# Build and distribution output
+dist/
+build/
+*.egg-info/
+
+# Python cache & compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Task & log output
+*.log
+cli_out.txt
