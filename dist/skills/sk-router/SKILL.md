@@ -15,22 +15,21 @@ description: 智能主分发路由 Skill (/sk)。自动读取当前对话上下�
 flowchart TD
     A[用户输入 /sk + 任务/问题/材料] --> B[意图识别与上下文分析]
     B --> C{识别痛点类型}
-    C -->|业务卡点/定价/转化低| D[/sk-diagnosis 商业诊断]
-    C -->|选题/短视频/文案爆款| E[/sk-content 内容策划]
-    C -->|对标账号/竞品模式| F[/sk-benchmark 竞品拆解]
-    C -->|重大选择/风险评估| G[/sk-decision 决策框架]
-    C -->|查找资料/知识整理| H[/sk-knowledge 知识库]
-    C -->|购买Plus/接码需求| I[/aiprobe-plus-buyer]
-    C -->|机场/VPN/Clash安装| J[/gula-vpn-clash-guide]
-    C -->|ChatGPT客户端部署| K[/chatgpt-installer-skill]
+    C -->|小白国内使用Codex从零到一| D[/sk-codex-beginner]
+    C -->|小白入门通关流程指南| E[/sk-starter]
+    C -->|购买Plus/接码需求| F[/aiprobe-plus-buyer]
+    C -->|机场/VPN/Clash安装| G[/gula-vpn-clash-guide]
+    C -->|ChatGPT客户端部署| H[/chatgpt-installer-skill]
+    C -->|重大选择/风险评估| I[/sk-decision 决策框架]
+    C -->|查找资料/知识整理| J[/sk-knowledge 知识库]
 ```
 
 ---
 
 ## 核心功能规范
 
-1. **自动识别与分发**：根据用户输入的材料（如：“我的课程定价 299，但转化率很低”），匹配 `/sk-diagnosis` 商业诊断。
-2. **多轮引导**：在一轮分析产出后，提示用户下一步可调用的子技能（如：“已完成商业诊断，接下来可以使用 `/sk-content` 产出高转化文案”）。
+1. **自动识别与分发**：根据用户输入的材料（如：“我是小白，想在 Windows 上安装 ChatGPT 和使用 Codex”），匹配相应通关 Skill。
+2. **多轮引导**：在一轮分析产出后，提示用户下一步可调用的子技能（如：“网络代理已配置完成，接下来可以使用 `/chatgpt-installer-skill` 安装桌面客户端”）。
 
 ---
 
@@ -38,7 +37,7 @@ flowchart TD
 
 ```bash
 # 智能分析
-/sk 我做面向宝妈的收纳咨询，客户总觉得贵，我该怎么调整？
+/sk 我是国内小白，想从零开始配置 ChatGPT 和使用 Codex 编程，怎么操作？
 
-# 系统会自动转接至 /sk-diagnosis 技能并输出精准诊断矩阵
+# 系统会自动转接至 /sk-codex-beginner 技能并输出极简通关路线
 ```

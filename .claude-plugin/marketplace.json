@@ -2,7 +2,7 @@
   "name": "skilldb-marketplace",
   "owner": "skilldb",
   "version": "1.0.0",
-  "description": "SkillDB System - Business, Content, & AI Automation Skills Package",
+  "description": "SkillDB System - Verified AI Skills Package for Beginners & Monetization",
   "plugins": [
     {
       "name": "sk",
@@ -10,19 +10,29 @@
       "path": "skills/sk-router"
     },
     {
-      "name": "sk-diagnosis",
-      "description": "Business, Product, & Pricing Diagnosis Framework Skill",
-      "path": "skills/sk-diagnosis"
+      "name": "sk-codex-beginner",
+      "description": "China Codex / ChatGPT 0-to-1 Beginner Walkthrough Skill",
+      "path": "skills/sk-codex-beginner"
     },
     {
-      "name": "sk-content",
-      "description": "High-Converting Content Strategy & Copywriting Skill",
-      "path": "skills/sk-content"
+      "name": "aiprobe-plus-buyer",
+      "description": "ChatGPT Plus Account & Codex OTP Service Procurement Skill",
+      "path": "skills/aiprobe-plus-buyer"
     },
     {
-      "name": "sk-benchmark",
-      "description": "Competitor & Industry Benchmark Analysis Skill",
-      "path": "skills/sk-benchmark"
+      "name": "gula-vpn-clash-guide",
+      "description": "Gula VPN Nav Site & Multi-Platform Clash Setup Skill",
+      "path": "skills/gula-vpn-clash-guide"
+    },
+    {
+      "name": "chatgpt-installer-skill",
+      "description": "Cross-Platform ChatGPT Desktop Installer & Region Bypass Skill",
+      "path": "skills/chatgpt-installer-skill"
+    },
+    {
+      "name": "sk-starter",
+      "description": "Beginner 3-Step Starter Walkthrough Skill",
+      "path": "skills/sk-starter"
     },
     {
       "name": "sk-decision",

@@ -8,24 +8,19 @@
 
 ## 🎯 系统核心定位：聚焦“AI 变现”全生命周期
 
-本 Skill 系统专为**想要学习 AI 变现的人群**（独立开发者、AI 副业创作者、自媒体引流者、Solo Founder）打造，帮助用户从 **0 到 1 破除基建门槛**，并快速拿到**商业变现结果**。
-
-```
-[基建破局] 网络代理 ➔ 客户端安装 ➔ 纯净买号/同店接码  ==>  [变现落地] 对标拆解 ➔ 爆款引流 ➔ PMF诊断 ➔ 避坑决策
-```
+本 Skill 系统专为**想要学习 AI 变现的人群**（独立开发者、AI 副业创作者、自媒体引流者、Solo Founder）打造，帮助用户从 **0 到 1 破除基建门槛**（网络代理、软件安装、账号采购与接码验证），顺利开启 AI 变现之路。
 
 ```mermaid
 flowchart TD
     A[用户输入 /sk 需求] --> B[sk 智能主路由器]
     B --> C{选择专业能力 Skill}
-    C -->|商业/产品/定价卡点| D[/sk-diagnosis 商业诊断]
-    C -->|爆款选题/Hook/文案| E[/sk-content 内容策划]
-    C -->|标杆/竞品模式拆解| F[/sk-benchmark 竞品拆解]
-    C -->|重大选择/下行风险| G[/sk-decision 决策框架]
-    C -->|RAG知识检索| H[/sk-knowledge 知识库]
-    C -->|低价Plus采购与接码| I[/aiprobe-plus-buyer]
-    C -->|机场与Clash客户端安装| J[/gula-vpn-clash-guide]
-    C -->|ChatGPT全平台部署| K[/chatgpt-installer-skill]
+    C -->|小白国内使用Codex从零到一| D[/sk-codex-beginner]
+    C -->|小白入门通关流程指南| E[/sk-starter]
+    C -->|低价Plus采购与同店接码| F[/aiprobe-plus-buyer]
+    C -->|机场与Clash客户端安装| G[/gula-vpn-clash-guide]
+    C -->|ChatGPT全平台部署| H[/chatgpt-installer-skill]
+    C -->|重大选择/下行风险| I[/sk-decision 决策框架]
+    C -->|RAG知识检索| J[/sk-knowledge 知识库]
 ```
 
 ---
@@ -36,13 +31,16 @@ flowchart TD
 
 ### 1. 智能路由唤醒 (`/sk`)
 ```text
-/sk 我做面向宝妈的收纳咨询，客户总觉得贵，我该怎么调整？
+/sk 我是国内小白，想从零开始配置 ChatGPT 和使用 Codex 编程，怎么操作？
 ```
 
 ### 2. 显式调用具体技能
 ```text
-/sk-diagnosis    我做少儿编程课，已经有 40 个付费学员，但续费率很低。我该调整什么？
-/sk-content      我想讲“普通人别急着做个人 IP”，这个选题怎样做成高完播率脚本？
+/sk-codex-beginner       国内小白使用 Codex 的全流程通关指南
+/aiprobe-plus-buyer      抓取 aiprobe.top 纯净低价 Plus 账号与 Codex 1元短信接码卡密
+/gula-vpn-clash-guide    访问古拉防丢失发布站与全平台 Clash 配置指导
+/chatgpt-installer-skill 安装 Windows / macOS ChatGPT 桌面版客户端
+```
 /sk-benchmark    我想研究企业服务内容账号，应该找哪些对标？
 /sk-decision     我想离职出来做全职 AI 顾问，如何评估下行风险？
 /sk-knowledge    帮我把这个文件夹变成知识库，以后直接搜索。
