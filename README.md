@@ -12,7 +12,7 @@ npx -y skills add ss22219/skilldb -g --all
 
 ---
 
-## 📦 Claude Code 插件市场安装
+## 📦 Claude Code 插件市场
 
 也可以通过 Claude Code 插件市场安装完整工具箱：
 ```bash
@@ -27,24 +27,25 @@ claude plugin install skilldb@ss22219-skills
 已安装 `skilldb` 时，直接对当前 Agent 说：
 > **更新 skilldb**
 
-它会自动同步官方 `skilldb` 最新的过滤规则与全套配置，不会修改你的本地存档。版本变化见 [GitHub Releases](https://github.com/ss22219/skilldb/releases)。
+它会自动同步官方 `skilldb`，不会修改你在本地的存档、报告与决策记录。版本变化见 [GitHub Releases](https://github.com/ss22219/skilldb/releases)。
 
 ---
 
 ## ⚙️ skilldb 怎样工作
 
-你不需要事先掌握复杂的套路，也不需要记忆繁多的技能命令。只需输入 `/sk` 加你的需求，路由器会自动识别上下文并调度最契合的专业 Skill。
+`sk` 是 Skill System 的总指挥与调度路由器。用户无需记忆具体的 Skill 名称，只需在命令前加 `/sk`，系统会自动调度最契合的通关 Skill。
 
 ```mermaid
 flowchart TD
     subgraph router ["路由器调度引擎"]
         A[用户输入 /sk 需求] --> B[sk 智能主路由器]
         B --> C{选择专业能力 Skill}
-        C -->|小白国内使用Codex从零到一| D["/sk-codex-beginner"]
-        C -->|小白入门通关流程指南| E["/sk-starter"]
-        C -->|低价Plus采购与同店接码| F["/aiprobe-plus-buyer"]
-        C -->|机场与Clash客户端安装| G["/gula-vpn-clash-guide"]
-        C -->|ChatGPT全平台部署| H["/chatgpt-installer-skill"]
+        C -->|API 中转站搭建与赚钱| D["/sk-api-relay"]
+        C -->|小白国内使用Codex从零到一| E["/sk-codex-beginner"]
+        C -->|小白入门通关流程指南| F["/sk-starter"]
+        C -->|低价Plus采购与同店接码| G["/aiprobe-plus-buyer"]
+        C -->|机场与Clash客户端安装| H["/gula-vpn-clash-guide"]
+        C -->|ChatGPT全平台部署| I["/chatgpt-installer-skill"]
     end
 ```
 
@@ -56,11 +57,12 @@ flowchart TD
 
 ### 1. 智能路由唤醒 (`/sk`)
 ```text
-/sk 我是国内小白，想从零开始配置 ChatGPT 和使用 Codex 编程，怎么操作？
+/sk 想搭建大模型 API 中转站卖 Key 赚钱，怎么操作？
 ```
 
 ### 2. 显式调用具体技能
 ```text
+/sk-api-relay            大模型 API 中转站搭建与商业变现指南 (New-API/套利/自动发卡)
 /sk-codex-beginner       国内小白使用 Codex 的全流程通关指南
 /sk-starter              新手入门 3 步通关基础教程
 /aiprobe-plus-buyer      抓取 aiprobe.top 纯净低价 Plus 账号与 Codex 1元短信接码卡密
@@ -75,6 +77,7 @@ flowchart TD
 | 技能标识 (Skill ID) | 推荐指令 | 核心功能与避坑细节说明 |
 | :--- | :--- | :--- |
 | **`sk-router`** | `/sk` | **主分发路由器**：智能识别用户意图并自动匹配调度最优 Skill。 |
+| **`sk-api-relay-monetization`** | `/sk-api-relay` | **大模型 API 中转站赚钱**：开源 New-API/One-API 部署、上游渠道低价采买套利、倍率定价、自动发卡网对接及防刷风控全流程。 |
 | **`sk-codex-beginner`** | `/sk-codex-beginner` | **国内小白 Codex 从零到一通关指南**：说明网络解锁、Windows 区域改美国、以及在同一卡密平台购买 Codex 1元接码服务全流程。 |
 | **`sk-starter`** | `/sk-starter` | **新手 3 步通关指南**：从 0 到 1 引导网络代理配置、客户端部署与账号采购。 |
 | **`aiprobe-plus-buyer`** | `/aiprobe-plus-buyer` | **ChatGPT Plus / Codex 采购与同店接码**：实时抓取 `aiprobe.top` 数据，自动过滤 `提链/提炼/扫码/free/普号/icloud`，支持直接买账号与同一店铺买接码服务。 |
@@ -85,15 +88,19 @@ flowchart TD
 
 ## 📖 新手教程关键细节摘录
 
-### 1. 网络配置细节 (古拉防丢失主站 + 4 步法)
+### 1. API 中转站赚钱套利公式
+- **架构部署**：Docker 一键部署 New-API，配置二级域名与失败自动降级重试。
+- **套利逻辑**：上游批量采买额度（成本约 1 美元 = 0.3 元人民币），发卡网零售卖出（1 美元额度 = 1.5~2 元人民币），毛利率高。
+
+### 2. 网络配置细节 (古拉防丢失主站 + 4 步法)
 - **主站性质**：`https://古拉.com/` (`xn--w4r430a.com`) 为防丢失导航发布站，主站不直接提供节点，而是**指向最新二级入口**。必须由用户在浏览器手动打开点开跳转！
 - **4 步配置**：手动打开获取二级入口 -> 注册邮箱并选择套餐（**强烈建议按月订阅**） -> 下载 Clash Verge Rev 软件并导入订阅 -> 切换 **规则模式 (Rule)** 并开启 **系统代理 (System Proxy)**。
 
-### 2. Windows 客户端安装突破限制细节
+### 3. Windows 客户端安装突破限制细节
 - **修改系统区域**：按 **Win + I** 打开设置 -> **时间及语言** -> **区域** -> 将国家修改为 **美国 (United States)**（即时生效，解决商店搜不到或不可用）。
 - **管理员 PowerShell 安装**：运行 `winget install --id=9NT1R1C2HH7J -e`。
 
-### 3. 买号与 Codex 短信接码细节
+### 4. 买号与 Codex 短信接码细节
 - **过滤排除规则**：系统自动剔除 `提链`、`提炼`、`扫码`、`二维码`、`free`、`免费`、`普号`、`icloud`、`非Plus` 等干扰项。
 - **同一平台同一店铺接码**：小白无需注册国外接码网站，在 `https://aiprobe.top/` 同一个店铺（如 *一梦AI*、*ai小头*、*奥特曼严选* 等）即可像买卡密一样直接购买 Codex 短信接码服务（单次约 1 元左右）。
 
@@ -116,8 +123,9 @@ python validate_skills.py
 
 ```
 skilldb/
-├── skills/                     # 核心 6 大实战 Skill 库
+├── skills/                     # 核心 7 大实战 Skill 库
 │   ├── sk-router/              # 智能分发路由器 (/sk)
+│   ├── sk-api-relay-monetization/# 大模型 API 中转站赚钱指南 (/sk-api-relay)
 │   ├── sk-codex-beginner/      # 国内小白 Codex 0到1通关指南 (/sk-codex-beginner)
 │   ├── sk-starter/             # 新手 3 步入门指南 (/sk-starter)
 │   ├── aiprobe-plus-buyer/     # 低价 Plus 会员与同店接码采购 (/aiprobe-plus-buyer)
@@ -148,4 +156,3 @@ skilldb/
 ## 📄 许可证
 
 本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。个人使用、学习研究均可自由免费使用。
-

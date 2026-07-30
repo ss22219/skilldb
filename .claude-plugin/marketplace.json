@@ -10,6 +10,11 @@
       "path": "skills/sk-router"
     },
     {
+      "name": "sk-api-relay",
+      "description": "AI API Relay Station Monetization & Setup Skill",
+      "path": "skills/sk-api-relay-monetization"
+    },
+    {
       "name": "sk-codex-beginner",
       "description": "China Codex / ChatGPT 0-to-1 Beginner Walkthrough Skill",
       "path": "skills/sk-codex-beginner"
