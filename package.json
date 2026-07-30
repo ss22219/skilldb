@@ -1,5 +1,5 @@
 {
-  "name": "skilldb",
+  "name": "@ss22219/skilldb",
   "version": "1.0.0",
   "description": "High-scalability Modular AI Skills System & Monetization Engine",
   "main": "index.js",
