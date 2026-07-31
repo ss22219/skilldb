@@ -7,17 +7,17 @@
     {
       "name": "sk",
       "description": "Master Router Skill for automatically analyzing context and executing matching Skills",
-      "path": "skills/sk-router"
+      "path": "skills/sk"
     },
     {
       "name": "sk-business",
       "description": "AI Monetization Foundation Commercial Closed-Loop & Benchmarking Skill",
-      "path": "skills/sk-monetization-framework"
+      "path": "skills/sk-business"
     },
     {
       "name": "sk-api-relay",
       "description": "AI API Relay Station Monetization & Setup Skill",
-      "path": "skills/sk-api-relay-monetization"
+      "path": "skills/sk-api-relay"
     },
     {
       "name": "sk-codex-beginner",

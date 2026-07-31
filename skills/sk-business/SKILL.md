@@ -1,5 +1,5 @@
 ---
-name: sk-monetization-framework
+name: sk-business
 description: AI 变现底层商业闭环判定与项目寻找框架 Skill (/sk-business)。定义【流量 ➔ 转化 ➔ 交付】商业闭环三要素、为什么要找对标验证解决方案、模仿对标时的能力壁垒评估以及“无法复刻即换下一个”的快速止损法则。含 AI 漫剧/写小说卖课案例推导。
 ---
 
@@ -114,6 +114,6 @@ flowchart TD
 ## 💻 技能 CLI 命令行快速测试
 
 ```bash
-cd c:\Users\gool\Desktop\skilldb\skills\sk-monetization-framework\scripts
+cd c:\Users\gool\Desktop\skilldb\skills\sk-business\scripts
 python cli.py --help
 ```

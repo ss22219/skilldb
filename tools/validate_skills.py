@@ -41,6 +41,11 @@ def validate_skill_folder(skill_path: str) -> Tuple[bool, List[str]]:
         else:
             if "name" not in data:
                 errors.append(f"{skill_name}/SKILL.md frontmatter missing 'name'")
+            elif data["name"] != skill_name:
+                errors.append(
+                    f"{skill_name}/SKILL.md name '{data['name']}' "
+                    f"does not match folder name '{skill_name}'"
+                )
             if "description" not in data:
                 errors.append(f"{skill_name}/SKILL.md frontmatter missing 'description'")
     except Exception as e:

@@ -64,7 +64,7 @@ flowchart TD
 ### 2. 显式调用具体技能
 ```text
 /sk-business             底层商业闭环判定与自媒体 4 步寻找/复刻对标项目指南
-/sk-api-relay            大模型 API 中转站搭建与商业变现指南 (Sub2API/New-API/套利/自动发卡)
+/sk-api-relay            大模型 API 中转站搭建与商业变现指南 (首推 Sub2API，兼顾 CLIProxyAPI)
 /sk-codex-beginner       国内小白使用 Codex 的全流程通关指南
 /sk-starter              新手入门 3 步通关基础教程
 /aiprobe-plus-buyer      抓取 aiprobe.top 纯净低价 Plus 账号与 Codex 1元短信接码卡密
@@ -78,9 +78,9 @@ flowchart TD
 
 | 技能标识 (Skill ID) | 推荐指令 | 核心功能与避坑细节说明 |
 | :--- | :--- | :--- |
-| **`sk-router`** | `/sk` | **主分发路由器**：智能识别用户意图并自动匹配调度最优 Skill。 |
-| **`sk-monetization-framework`** | `/sk-business` | **底层商业闭环判定引擎**：定义【流量 ➔ 转化 ➔ 交付】商业闭环三要素、判定项目能否赚钱的标准，提供自媒体 4 步寻找与像素级模仿复刻对标项目的实操方法论。 |
-| **`sk-api-relay-monetization`** | `/sk-api-relay` | **大模型 API 中转站赚钱**：开源物理项目 `Sub2API` (`sub2api/sub2api`) / `New-API` (`calciumion/new-api`) 部署演进、海外 VPS 选型与 GCP/AWS/Azure 免费试用冷启动避坑、AI 驱动自动部署、联动小铺/发卡网 CDK 售卖、全套运维成本评估与 10% 薄利跑量/高毛利定价模型。 |
+| **`sk`** | `/sk` | **主分发路由器**：智能识别用户意图并自动匹配调度最优 Skill。 |
+| **`sk-business`** | `/sk-business` | **底层商业闭环判定引擎**：定义【流量 ➔ 转化 ➔ 交付】商业闭环三要素、判定项目能否赚钱的标准，提供自媒体 4 步寻找与像素级模仿复刻对标项目的实操方法论。 |
+| **`sk-api-relay`** | `/sk-api-relay` | **大模型 API 中转站赚钱**：首推 `Sub2API` (`sub2api/sub2api`)，并覆盖 `CLIProxyAPI` (`router-for-me/CLIProxyAPI`)；包含海外 VPS 选型、AI 驱动部署、CDK 售卖、运维成本评估与定价模型。 |
 | **`sk-codex-beginner`** | `/sk-codex-beginner` | **国内小白 Codex 从零到一通关指南**：说明网络解锁、Windows 区域改美国、以及在同一卡密平台购买 Codex 1元接码服务全流程。 |
 | **`sk-starter`** | `/sk-starter` | **新手 3 步通关指南**：从 0 到 1 引导网络代理配置、客户端部署与账号采购。 |
 | **`aiprobe-plus-buyer`** | `/aiprobe-plus-buyer` | **ChatGPT Plus / Codex 采购与同店接码**：实时抓取 `aiprobe.top` 数据，自动过滤 `提链/提炼/扫码/free/普号/icloud`，支持直接买账号与同一店铺买接码服务。 |
@@ -97,9 +97,9 @@ flowchart TD
 - **自媒体 4 步模仿**：`(a) 搜索对标` (利用搜索工具找热点) ➔ `(b) 筛选验证` (确认同行持续盈利) ➔ `(c) 拆解与评估` (剖析流量/转化/交付并评估壁垒) ➔ `(d) 像素级模仿或快速止损` (可复刻则 100% 复制成功路径，不可复刻则换下一个)。
 
 ### 2. API 中转站商业变现与真实物理项目
-- **物理真实项目避坑**：使用物理真实存在的 `sub2api/sub2api`（订阅号池转 API）、`calciumion/new-api`（大模型聚合网关）与 `cli-proxy-api`，摒弃与 AI 无关的电商插件。
+- **物理真实项目避坑**：首推 `sub2api/sub2api`（订阅号池转 API），并覆盖 `router-for-me/CLIProxyAPI`（CLI 代理转 API）。
 - **流量与转化**：开源 Skill 工具箱教程自媒体引流，直播免费帮装软件配环境现场转化（80%+ 高转化），向客户突出“价格低、稳定性高、随时充值不过期、免国外卡与接码+一对一技术支持”4 大卖点。
-- **架构与部署演进**：新手初级阶段单节点部署 `Sub2API` 挂载 Plus 订阅号池；业务扩容阶段多节点部署并由 `New-API` 统一路由网关聚合做负载均衡。
+- **架构与部署演进**：新手初级阶段单节点部署 `Sub2API` 挂载 Plus 订阅号池；业务扩容阶段可部署多个 `Sub2API` 节点并配置负载均衡，CLI 工具转 API 场景使用 `CLIProxyAPI`。
 - **海外 VPS 与大厂免费试用策略**：推荐选择 RackNerd / Cloudcone / Vultr（预付费固定包年 $10~$20/年，零天价扣费风险）；亦可利用 GCP ($300体验金)、AWS (12个月免费) 及 Azure ($200赠金) 零成本冷启动，但必须使用真实外币信用卡绑定，且业务有起色产生收入后及时升级为付费账户，防止被判定为 Abuse/薅羊毛滥用封号。直接通过 AI Agent（Claude Code/Antigravity）自动化部署 Docker、Caddy SSL 证书与容器。
 - **CDK 发卡收单与成本评估**：上架联动小铺/发卡网卖 CDK 兑换码；定价前先通过 `总成本 = VPS月费 + 域名 + Plus账号采购 + 住宅IP代理` 算准保本单价，自由选择 **10% 薄利跑大流水模式** 或 **高毛利模式**。
 
@@ -135,9 +135,9 @@ python validate_skills.py
 ```
 skilldb/
 ├── skills/                     # 核心 8 大实战 Skill 库
-│   ├── sk-router/              # 智能分发路由器 (/sk)
-│   ├── sk-monetization-framework/# 底层商业闭环判定与找项目框架 (/sk-business)
-│   ├── sk-api-relay-monetization/# 大模型 API 中转站赚钱指南 (/sk-api-relay)
+│   ├── sk/                     # 智能分发路由器 (/sk)
+│   ├── sk-business/            # 底层商业闭环判定与找项目框架 (/sk-business)
+│   ├── sk-api-relay/           # 大模型 API 中转站赚钱指南 (/sk-api-relay)
 │   ├── sk-codex-beginner/      # 国内小白 Codex 0到1通关指南 (/sk-codex-beginner)
 │   ├── sk-starter/             # 新手 3 步入门指南 (/sk-starter)
 │   ├── aiprobe-plus-buyer/     # 低价 Plus 会员与同店接码采购 (/aiprobe-plus-buyer)

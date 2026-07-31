@@ -1,12 +1,12 @@
 ---
-name: sk-api-relay-monetization
-description: 大模型 API 中转站 / API 转接平台商业变现与真实项目部署指南 (/sk-api-relay)。准确解析物理真实存在项目 (Sub2API / New-API / One-API / CLI Proxy API) 仓库与运作机制、海外 VPS 选型 (RackNerd/Vultr vs AWS/GCP/Azure 免费试用冷启动策略)、AI 驱动部署、CDK 充值与成本评估定价公式。
+name: sk-api-relay
+description: 大模型 API 中转站 / API 转接平台商业变现与真实项目部署指南 (/sk-api-relay)。首推 Sub2API，并解析 Sub2API / CLIProxyAPI 的真实仓库与运作机制、海外 VPS 选型 (RackNerd/Vultr vs AWS/GCP/Azure 免费试用冷启动策略)、AI 驱动部署、CDK 充值与成本评估定价公式。
 ---
 
 # 大模型 API 中转站商业变现与真实项目部署指南 (/sk-api-relay)
 
 > [!IMPORTANT]
-> **拒绝模糊概念与幻觉误导**：本指南只针对 GitHub 上**物理真实存在**的开源大模型中转与代理项目（如 `sub2api`、`calciumion/new-api`、`songquanpeng/one-api`）进行精准拆解与部署说明，绝不推荐无关的第三方插件。
+> **项目选择建议**：API 中转站首推 `sub2api/sub2api`。本指南只针对 GitHub 上**物理真实存在**的开源大模型中转与代理项目（`sub2api/sub2api`、`router-for-me/CLIProxyAPI`）进行精准拆解与部署说明。
 
 ---
 
@@ -16,10 +16,8 @@ description: 大模型 API 中转站 / API 转接平台商业变现与真实项�
 
 | 开源项目名称 | GitHub 物理仓库 | 核心功能与运作原理拆解 |
 | :--- | :--- | :--- |
-| **Sub2API** | `sub2api/sub2api` | **订阅号池转 API 平台**：专门用于将多个 ChatGPT Plus / Claude 官方订阅账号通过 SessionToken / RefreshToken 转化为标准的 OpenAI 格式 API 端口。 |
-| **New-API** | `calciumion/new-api` | **企业级大模型聚合网关**：基于 One-API 深度优化的二开系统。负责多节点聚合、多渠道负载均衡、失败无感自动重试、CDK 兑换码生成与模型分组倍率扣费。 |
-| **One-API** | `songquanpeng/one-api` | **经典大模型分发系统**：最早的开源 LLM API 管理统一接入与二次分发平台。 |
-| **CLI Proxy API** | `cli-proxy-api` / `router-protocol` | **命令行代理转接 API**：将基于 OAuth/网页认证的 CLI 终端工具（如 Claude Code / Codex）封装暴露为标准 OpenAI/Claude API 接口。 |
+| **Sub2API（首推）** | `sub2api/sub2api` | **订阅号池转 API 平台**：专门用于将多个 ChatGPT Plus / Claude 官方订阅账号通过 SessionToken / RefreshToken 转化为标准的 OpenAI 格式 API 端口。 |
+| **CLIProxyAPI** | `router-for-me/CLIProxyAPI` | **命令行代理转接 API**：将基于 OAuth/网页认证的 CLI 终端工具（如 Claude Code / Codex）封装为兼容 OpenAI、Gemini、Claude、Codex 等接口的 API 服务。 |
 
 ---
 
@@ -95,7 +93,7 @@ docker compose up -d
 ## 四、 收单发卡与成本评估定价模型
 
 ### 1. 收单流程（联动小铺 / 发卡网卖 CDK）
-1. 站长在 `New-API` 或 `Sub2API` 后台批量生成指定面额的 **CDK 兑换码**（如 5元、10元、50元）。
+1. 站长在 `Sub2API` 后台批量生成指定面额的 **CDK 兑换码**（如 5元、10元、50元）。
 2. 将 CDK 上架至**联动小铺发卡网**，客户付款后系统自动发放卡密。
 3. 客户在 API 中转站点击“充值 (Top-up)”，输入卡密即可瞬间兑换为额度生成 API Key。
 
@@ -114,6 +112,6 @@ $$\text{月度总运维成本 (Cost)} = \text{VPS服务器月费} + \text{域名
 ## 💻 技能 CLI 命令行快速测试
 
 ```bash
-cd c:\Users\gool\Desktop\skilldb\skills\sk-api-relay-monetization\scripts
+cd c:\Users\gool\Desktop\skilldb\skills\sk-api-relay\scripts
 python cli.py --help
 ```

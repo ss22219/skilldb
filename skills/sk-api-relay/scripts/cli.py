@@ -9,7 +9,7 @@ def main():
     print("==================================================")
     print("\n【1. 物理真实开源项目与分工】")
     print("  • Sub2API (sub2api/sub2api): 订阅号池转 API 平台，处理 Session/RefreshToken 轮询与协议转换")
-    print("  • New-API (calciumion/new-api): 企业级大模型聚合网关，负责多节点聚合与 CDK 计费")
+    print("  • CLIProxyAPI (router-for-me/CLIProxyAPI): 将 Claude Code、Codex 等 CLI 工具转为兼容 API")
     print("\n【2. 海外 VPS 选型与大厂免费试用冷启动策略】")
     print("  • 传统 VPS (RackNerd / Cloudcone / Vultr): 预付费固定账单 ($10-$20/年)，零天价扣费风险")
     print("  • 大厂免费试用 (AWS / GCP / Azure): 可利用免费赠金零成本冷启动，需注意 2 大防封门槛：")
