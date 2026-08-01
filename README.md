@@ -41,12 +41,13 @@ flowchart TD
         A[用户输入 /sk 需求] --> B[sk 智能主路由器]
         B --> C{选择专业能力 Skill}
         C -->|底层商业闭环判定与找项目| D["/sk-business"]
-        C -->|API 中转站搭建与赚钱| E["/sk-api-relay"]
-        C -->|小白国内使用Codex从零到一| F["/sk-codex-beginner"]
-        C -->|小白入门通关流程指南| G["/sk-starter"]
-        C -->|低价Plus采购与同店接码| H["/aiprobe-plus-buyer"]
-        C -->|机场与Clash客户端安装| I["/gula-vpn-clash-guide"]
-        C -->|ChatGPT全平台部署| J["/chatgpt-installer-skill"]
+        C -->|内容评分、课程、考试与晋级| E["/sk-content"]
+        C -->|API 中转站搭建与赚钱| F["/sk-api-relay"]
+        C -->|小白国内使用Codex从零到一| G["/sk-codex-beginner"]
+        C -->|小白入门通关流程指南| H["/sk-starter"]
+        C -->|低价Plus采购与同店接码| I["/aiprobe-plus-buyer"]
+        C -->|机场与Clash客户端安装| J["/gula-vpn-clash-guide"]
+        C -->|ChatGPT全平台部署| K["/chatgpt-installer-skill"]
     end
 ```
 
@@ -64,6 +65,7 @@ flowchart TD
 ### 2. 显式调用具体技能
 ```text
 /sk-business             底层商业闭环判定与自媒体 4 步寻找/复刻对标项目指南
+/sk-content              4 阶段 12 年级短视频训练，AI 动态问答、作品评审与晋级认证
 /sk-api-relay            大模型 API 中转站搭建与商业变现指南 (首推 Sub2API，兼顾 CLIProxyAPI)
 /sk-codex-beginner       国内小白使用 Codex 的全流程通关指南
 /sk-starter              新手入门 3 步通关基础教程
@@ -80,6 +82,7 @@ flowchart TD
 | :--- | :--- | :--- |
 | **`sk`** | `/sk` | **主分发路由器**：智能识别用户意图并自动匹配调度最优 Skill。 |
 | **`sk-business`** | `/sk-business` | **底层商业闭环判定引擎**：定义【流量 ➔ 转化 ➔ 交付】商业闭环三要素、判定项目能否赚钱的标准，提供自媒体 4 步寻找与像素级模仿复刻对标项目的实操方法论。 |
+| **`sk-content`** | `/sk-content` | **AI 短视频创作者 K12**：采用 4 阶段 12 年级课程，通过陌生材料、实时追问、反事实、作品与多模态评审完成考试、补考和跳级，逐步建立信任、成交与 IP 能力。 |
 | **`sk-api-relay`** | `/sk-api-relay` | **大模型 API 中转站赚钱**：首推 `Sub2API` (`sub2api/sub2api`)，并覆盖 `CLIProxyAPI` (`router-for-me/CLIProxyAPI`)；包含海外 VPS 选型、AI 驱动部署、CDK 售卖、运维成本评估与定价模型。 |
 | **`sk-codex-beginner`** | `/sk-codex-beginner` | **国内小白 Codex 从零到一通关指南**：说明网络解锁、Windows 区域改美国、以及在同一卡密平台购买 Codex 1元接码服务全流程。 |
 | **`sk-starter`** | `/sk-starter` | **新手 3 步通关指南**：从 0 到 1 引导网络代理配置、客户端部署与账号采购。 |
@@ -134,9 +137,10 @@ python validate_skills.py
 
 ```
 skilldb/
-├── skills/                     # 核心 8 大实战 Skill 库
+├── skills/                     # 核心 9 大实战 Skill 库
 │   ├── sk/                     # 智能分发路由器 (/sk)
 │   ├── sk-business/            # 底层商业闭环判定与找项目框架 (/sk-business)
+│   ├── sk-content/             # 多模态短视频创作者 K12 系统 (/sk-content)
 │   ├── sk-api-relay/           # 大模型 API 中转站赚钱指南 (/sk-api-relay)
 │   ├── sk-codex-beginner/      # 国内小白 Codex 0到1通关指南 (/sk-codex-beginner)
 │   ├── sk-starter/             # 新手 3 步入门指南 (/sk-starter)

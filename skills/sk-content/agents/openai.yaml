@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 短视频创作者 K12"
+  short_description: "动态问答、多模态作品评审与 12 年级晋升认证系统"
+  default_prompt: "使用 $sk-content 判断我的当前年级，并通过实时问答带我完成下一项训练。"

@@ -15,6 +15,11 @@
       "path": "skills/sk-business"
     },
     {
+      "name": "sk-content",
+      "description": "AI-Adaptive Multimodal Short-Video Creator K12 Training and Certification",
+      "path": "skills/sk-content"
+    },
+    {
       "name": "sk-api-relay",
       "description": "AI API Relay Station Monetization & Setup Skill",
       "path": "skills/sk-api-relay"
